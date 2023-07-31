@@ -3,7 +3,7 @@ import { Cloud, MarkDown, Free, Download } from "./SvgFiles";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="">
       <div>
         <h3 className="text-center text-3xl mt-[3.8rem] font-bold">
           The Simplest Way to <br /> make Notes

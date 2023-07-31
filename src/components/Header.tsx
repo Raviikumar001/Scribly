@@ -10,15 +10,15 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="m-6 flext items-center">
             <img src="/img/logo1.png" className="w-10 inline-block" />
-            <h2 className="inline-block text-xl ">Scriblynote</h2>
+            <h2 className="inline-block text-xl font-medium ">Scriblynote</h2>
           </div>
           <div
             className="ml-[7rem] cursor-pointer md:hidden relative"
             
           >
-            <span onClick={() => setIsNavOpen((prev) => !prev)}>
+            <span  onClick={() => setIsNavOpen((prev) => !prev)}>
               {!isNavOpen ? (
-                "Menu"
+               <p className="text-md">Menu</p> 
               ) : (
                 // <svg
                 //   className="h-8 w-8 text-gray-600"
