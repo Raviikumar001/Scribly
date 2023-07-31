@@ -1,10 +1,11 @@
 import { useState } from "react";
-
+import {CrossArrow} from './SvgFiles';
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <div>
+           
       <nav>
         <div className="flex justify-between items-center">
           <div className="m-6 flext items-center">
@@ -13,40 +14,41 @@ const Header = () => {
           </div>
           <div
             className="ml-[7rem] cursor-pointer md:hidden relative"
-            onClick={() => setIsNavOpen((prev) => !prev)}
+            
           >
-            <span>
+            <span onClick={() => setIsNavOpen((prev) => !prev)}>
               {!isNavOpen ? (
                 "Menu"
               ) : (
-                <svg
-                  className="h-8 w-8 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
+                // <svg
+                //   className="h-8 w-8 text-gray-600"
+                //   viewBox="0 0 24 24"
+                //   fill="none"
+                //   stroke="currentColor"
+                //   strokeWidth="2"
+                //   strokeLinecap="round"
+                //   strokeLinejoin="round"
+                // >
+                //   <line x1="18" y1="6" x2="6" y2="18" />
+                //   <line x1="6" y1="6" x2="18" y2="18" />
+                // </svg>
+                <CrossArrow />
               )}
             </span>
             <section
               className={
                 isNavOpen
-                  ? "absolute  h-[8rem] w-[5.8rem] left-[-2rem] bg-white drop-shadow-xl "
+                  ? "absolute  h-[8rem] w-[5.8rem] left-[-3rem] bg-white drop-shadow-xl "
                   : "hidden"
               }
             >
               <ul className="text-base mt-4 block postedIn text-left px-3 rounded-md">
                 <li className="py-2">
-                  <a href="#">Login</a>
+                  <a href="www.google.com">Login</a>
                 </li>
                 <li>
                   {" "}
-                  <a href="#">Sign Up</a>
+                  <a href="www.google.com">Sign Up</a>
                 </li>
               </ul>
             </section>
