@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <div className=' bg_gradient'>
+    <div className=' bg_gradient w-full'>
       <Header />
       <LandingPage />
       <Footer />
