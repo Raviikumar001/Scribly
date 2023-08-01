@@ -13,12 +13,12 @@ const LandingPage = () => {
           Haven.
         </p>
       </div>
-      <div>
-        <button className="mt-7 ml-[9rem] text-center rounded-md bg-blue-500 p-3 text-white">
+      <div className="flex flex-col items-center justify-center mt-5">
+        <button className="text-center rounded-md bg-blue-500 p-3 text-white">
           Sign Up Now
         </button>
       </div>
-
+     <img src="img/landing.jpg" className="mt-6 rounded-md"/>
       <div className="mt-[8rem] text-center">
         <p className="text-2xl font-bold">
           Deeply intricate, yet elegantly straightforward
