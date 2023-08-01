@@ -6,13 +6,13 @@ const Header = () => {
   return (
     <div>
       <nav>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center md:justify-around">
           
-          <div className="m-2 flext items-center">
-            <img src="/img/logo1.png" className="w-10 inline-block" />
-            <h2 className="inline-block text-xl font-medium ">Scriblynote</h2>
+          <div className="m-2 first: flex items-center md:m-0 md:ml-[-5rem]">
+            <img src="/img/logo1.png" className="w-12 inline-block" />
+            <h2 className="heading_text md:text-2xl">Scriblynote</h2>
           </div>
-          <div className="ml-[7rem] cursor-pointer md:hidden relative">
+          <div className="ml-[7rem] cursor-pointer md:hidden relative md:ml-[3rem]">
             <span onClick={() => setIsNavOpen((prev) => !prev)}>
               {!isNavOpen ? <p className="text-md">Menu</p> : <CrossArrow />}
             </span>
@@ -34,8 +34,14 @@ const Header = () => {
               </ul>
             </section>
           </div>
-
-          <div></div>
+          
+          <div className="hidden md:block" >
+            <ul className=" md:flex md:justify-around ">
+              <li className="px-2" >Login In</li>
+              <li>Sign Up</li>
+            </ul>
+          </div>
+          <br />
         </div>
       </nav>
     </div>

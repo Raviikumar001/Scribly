@@ -9,13 +9,17 @@ function App() {
 
 
   return (
-    <>
-    <div className=' bg_gradient w-full'>
+   
+    <div >
+
+    <div className='bg_gradient'>
       <Header />
       <LandingPage />
       <Footer />
+
+    
     </div>
-    </>
+    </div>
   )
 }
 

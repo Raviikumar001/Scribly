@@ -6,7 +6,8 @@ const LandingPage = () => {
     <div className="">
       <div>
         <h3 className="text-center text-3xl mt-[3.8rem] font-bold">
-          The Simplest Way to <br /> make Notes
+          
+          Effortlessly create notes with<br /> simplicity.
         </h3>
         <p className="text-center mt-5 px-6">
           Capture Your Thoughts, Anytime, Anywhere – Your Personal Note-Taking
@@ -18,7 +19,7 @@ const LandingPage = () => {
           Sign Up Now
         </button>
       </div>
-     <img src="img/landing.jpg" className="mt-6 rounded-md"/>
+     <img src="img/landing.jpg" className="mt-6 w-full rounded-md"/>
       <div className="mt-[8rem] text-center">
         <p className="text-2xl font-bold">
           Deeply intricate, yet elegantly straightforward
@@ -28,19 +29,7 @@ const LandingPage = () => {
 
       <section>
         <div className="">
-          {/* <div className="flex mt-5 ml-9 items-center"> */}
-          {/* <svg className="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-        </svg> */}
-          {/* <Cloud />
-
-        <h3 className="pl-4 font-bold text-lg">Use it anywhere</h3>
-     
-          </div>
-        <p className="ml-9 mt-3 whitespace-pre-line flex-col">
-          Notes always stay updated, 
-          with cloud storage, they are saved in real time.
-        </p> */}
+         
 
           <Features
             SvgFile={<Cloud />}
@@ -66,7 +55,20 @@ const LandingPage = () => {
           feature="Download Content" />
 
         </div>
+
       </section>
+      <br />
+        <section>
+          <h3 className="text-center text-2xl font-bold">
+          Your notes, kept secure 
+          <br />
+          and private.
+          </h3>
+          <h3></h3>
+          <p className="text-center mt-6 text-lg px-4">Built from the ground up keeping securty design in mind.
+            We'll keep your data safe.
+          </p>
+        </section>
     </div>
   );
 };
