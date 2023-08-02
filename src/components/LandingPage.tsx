@@ -5,9 +5,9 @@ const LandingPage = () => {
   return (
     <div className="">
       <div>
-        <h3 className="text-center text-3xl mt-[3.8rem] font-bold">
+        <h3 className="text-center text-3xl mt-[4rem] font-bold md:text-5xl md:leading-normal">
           
-          Effortlessly create notes with<br /> simplicity.
+          Effortlessly create notes <br /> with simplicity.
         </h3>
         <p className="text-center mt-5 px-6">
           Capture Your Thoughts, Anytime, Anywhere – Your Personal Note-Taking
@@ -19,16 +19,16 @@ const LandingPage = () => {
           Sign Up Now
         </button>
       </div>
-     <img src="img/landing.jpg" className="mt-6 w-full rounded-md"/>
-      <div className="mt-[8rem] text-center">
-        <p className="text-2xl font-bold">
-          Deeply intricate, yet elegantly straightforward
+     <img src="img/landing.jpg"  className="mt-6 md:object-fit rounded-md"/>
+      <div className="mt-[4rem] text-center">
+        <p className="text-2xl font-bold md:text-5xl md:leading-normal">
+          Deeply intricate, yet <br />elegantly straightforward
         </p>
       </div>
       <br />
 
-      <section>
-        <div className="">
+      <section className="md:flex md:justify-center md:items-center">
+        <div className="md:grid md:grid-cols-2  ">
          
 
           <Features
@@ -40,13 +40,15 @@ const LandingPage = () => {
 
           <Features
             SvgFile={<MarkDown />}
-            desc="Compose and preview your notes with ease using Markdown format."
+            desc="Compose and preview your notes with ease,
+             using Markdown format."
             feature="MarkDown supoort"
           />
 
           <Features
             SvgFile={<Free />}
-            desc="Write notes effortlessly, no need to worry about payments!"
+            desc="Write notes effortlessly, 
+            no need to worry about payments!"
             feature="It's Free"
           />
           <Features 
@@ -59,14 +61,14 @@ const LandingPage = () => {
       </section>
       <br />
         <section>
-          <h3 className="text-center text-2xl font-bold">
+          <h3 className="text-center text-2xl font-bold md:text-3xl">
           Your notes, kept secure 
           <br />
           and private.
           </h3>
           <h3></h3>
-          <p className="text-center mt-6 text-lg px-4">Built from the ground up keeping securty design in mind.
-            We'll keep your data safe.
+          <p className="text-center mt-6 text-lg px-4 ">Built from the ground up keeping securty design in mind.
+           <br /> We'll keep your data safe.
           </p>
         </section>
     </div>

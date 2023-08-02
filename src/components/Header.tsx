@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { CrossArrow } from "./SvgFiles";
+
+
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <div>
       <nav>
-        <div className="flex justify-between items-center md:justify-around">
+        <div className="flex justify-around items-center md:justify-around">
           
-          <div className="m-2 first: flex items-center md:m-0 md:ml-[-5rem]">
+          <div className="m-2 first: flex items-center  ">
             <img src="/img/logo1.png" className="w-12 inline-block" />
             <h2 className="heading_text md:text-2xl">Scriblynote</h2>
           </div>
@@ -19,7 +21,7 @@ const Header = () => {
             <section
               className={
                 isNavOpen
-                  ? "absolute py-4 h-[9rem] w-[7rem] left-[-3rem] bg-white drop-shadow-xl "
+                  ? "absolute py-4 h-[9rem] w-[7rem] left-[-5rem]  bg-white drop-shadow-xl "
                   : "hidden"
               }
             >
@@ -34,14 +36,14 @@ const Header = () => {
               </ul>
             </section>
           </div>
-          
-          <div className="hidden md:block" >
-            <ul className=" md:flex md:justify-around ">
-              <li className="px-2" >Login In</li>
-              <li>Sign Up</li>
+          <div className="hidden md:block " >
+            <ul className="md:flex text-slate-800 md:items-center justify-center">
+              <li className="px-3" >Login In</li>
+              <li className="border p-1 mb-1 rounded-sm">Sign Up</li>
             </ul>
           </div>
-          <br />
+
+
         </div>
       </nav>
     </div>
