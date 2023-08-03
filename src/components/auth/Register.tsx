@@ -1,7 +1,7 @@
 const Register = () => {
   return (
     <div>
-      <section>
+      <section className="h-full w-full">
         <div className="text center flex flex-col  font-inter ">
           {/* <img width={100} src="/img/logo1.png" alt="logo" /> */}
           <h2 className="text-3xl font-semibold text-center mt-20 ">
@@ -20,7 +20,7 @@ const Register = () => {
           <br />
         </div>
 
-        <form>
+        <form >
           <div className="">
             <label htmlFor="name" className="block mb-2 ml-10 ">
               Name:
@@ -54,7 +54,7 @@ const Register = () => {
         <div className="text-center">
           <p className="text-slate-600">Already have an account? <span className="text-black">Sign in</span></p>
         </div>
-      </section>
+      </section >
     </div>
   );
 };

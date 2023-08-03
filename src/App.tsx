@@ -11,7 +11,7 @@ function App() {
    
     <div >
 
-    <div className='bg_gradient '>
+    <div className='min-h-screen bg_gradient '>
       {/* <Header />
       <LandingPage />
       <Footer /> */}
