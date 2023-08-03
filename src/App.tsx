@@ -1,5 +1,5 @@
 
-import {Footer,Header,LandingPage, Register} from './components/pages'
+// import {Footer,Header,LandingPage, Register} from './components/pages'
 
 
 
