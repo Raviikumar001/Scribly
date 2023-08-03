@@ -45,8 +45,8 @@ const Register = () => {
 
           
 
-            <button className="mt-3 border bg-black text-white border-slate-400 rounded-md p-2  pr-[3.8rem] flex justify-center items-center">
-              <p className="ml-12">Create your account </p>
+            <button className="mt-3 border bg-black text-white border-slate-400 rounded-md p-2  ml-15 px-[3.65rem] py-3">
+              <p className="">Create your account </p>
             </button>
             <br />
           </div>
