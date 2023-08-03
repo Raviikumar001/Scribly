@@ -1,8 +1,7 @@
 
+import {Footer,Header,LandingPage, Register} from './components/pages'
 
-import Footer from './components/Footer'
-import Header from './components/Header'
-import LandingPage from './components/LandingPage'
+
 
 
 function App() {
@@ -12,10 +11,11 @@ function App() {
    
     <div >
 
-    <div className='bg_gradient'>
-      <Header />
+    <div className='bg_gradient '>
+      {/* <Header />
       <LandingPage />
-      <Footer />
+      <Footer /> */}
+      <Register />
 
     
     </div>
