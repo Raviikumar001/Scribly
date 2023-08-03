@@ -22,11 +22,11 @@ const Register = () => {
 
         <form >
           <div className="flex flex-col justify-center items-center ">
-            <label htmlFor="name" className="self-start block mb-2 ml-[3rem]">
+            <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
               Name:
             </label>
             <input className="border border-slate-400 rounded-md p-2  mb-3 pr-11 " />
-            <label htmlFor="email" className="self-start block mb-2 ml-[3rem] ">
+            <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
               Email:
             </label>
             <input
@@ -34,7 +34,7 @@ const Register = () => {
               className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
             />
 
-            <label htmlFor="password" className="self-start block mb-2 ml-[3rem]">
+            <label htmlFor="password" className="self-start block mb-2 ml-[4rem]">
               Password:
             </label>
             <input
@@ -60,3 +60,36 @@ const Register = () => {
 };
 
 export default Register;
+
+
+{/* <form >
+<div className="flex flex-col justify-center items-center ">
+  <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
+    Name:
+  </label>
+  <input className="border border-slate-400 rounded-md p-2  mb-3 pr-11 " />
+  <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
+    Email:
+  </label>
+  <input
+    type="text"
+    className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
+  />
+
+  <label htmlFor="password" className="self-start block mb-2 ml-[4rem]">
+    Password:
+  </label>
+  <input
+    type="password"
+    className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
+  />
+
+
+
+
+  <button className="mt-3 border bg-black text-white border-slate-400 rounded-md p-2  pr-[3.8rem] flex justify-center items-center">
+    <p className="ml-12">Create your account </p>
+  </button>
+  <br />
+</div>
+</form> */}
