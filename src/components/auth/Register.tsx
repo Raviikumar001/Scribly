@@ -22,11 +22,11 @@ const Register = () => {
 
         <form className="form">
           <div className="flex flex-col justify-center items-center ">
-            <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
+            <label htmlFor="name" className="self-start block mb-2 ml-[3.8rem]">
               Name:
             </label>
             <input className="border border-slate-400 rounded-md p-2  mb-3 input_width " />
-            <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
+            <label htmlFor="email" className="self-start block mb-2 ml-[3.8rem] ">
               Email:
             </label>
             <input
@@ -36,7 +36,7 @@ const Register = () => {
 
             <label
               htmlFor="password"
-              className="self-start block mb-2 ml-[4rem]"
+              className="self-start block mb-2 ml-[3.8rem]"
             >
               Password:
             </label>
