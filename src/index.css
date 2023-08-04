@@ -11,9 +11,11 @@ body{
 }
 
 .btn_width {
-  width: 14rem;
+  width: 19rem;
 }
-
+.input_width {
+  width: 19rem
+}
 
 .bg_gradient{
  

@@ -25,13 +25,13 @@ const Register = () => {
             <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
               Name:
             </label>
-            <input className="border border-slate-400 rounded-md p-2  mb-3  " />
+            <input className="border border-slate-400 rounded-md p-2  mb-3 input_width " />
             <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
               Email:
             </label>
             <input
               type="text"
-              className="border border-slate-400 rounded-md p-2  mb-3  "
+              className="border border-slate-400 rounded-md p-2  mb-3 input_width "
             />
 
             <label
@@ -42,7 +42,7 @@ const Register = () => {
             </label>
             <input
               type="password"
-              className="border border-slate-400 rounded-md p-2  mb-3 "
+              className="border border-slate-400 rounded-md p-2  mb-3 input_width"
             />
 
             <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
