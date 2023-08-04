@@ -1,3 +1,5 @@
+//this is the register component
+
 const Register = () => {
   return (
     <div>
