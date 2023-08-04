@@ -23,11 +23,11 @@ const Register = () => {
         <form className="form">
           <div className="flex flex-col justify-center items-center ">
             <label htmlFor="name" className="self-start block mb-2 ml-[3.8rem]">
-              Name:
+              Name
             </label>
             <input className="border border-slate-400 rounded-md p-2  mb-3 input_width " />
             <label htmlFor="email" className="self-start block mb-2 ml-[3.8rem] ">
-              Email:
+              Email
             </label>
             <input
               type="text"
@@ -38,7 +38,7 @@ const Register = () => {
               htmlFor="password"
               className="self-start block mb-2 ml-[3.8rem]"
             >
-              Password:
+              Password
             </label>
             <input
               type="password"
@@ -51,7 +51,7 @@ const Register = () => {
             <br />
           </div>
         </form>
-        <div className="text-center">
+        <div className="text-center mt-5">
           <p className="text-slate-600">
             Already have an account? <span className="text-black">Sign in</span>
           </p>
@@ -63,36 +63,4 @@ const Register = () => {
 
 export default Register;
 
-{
-  /* <form >
-<div className="flex flex-col justify-center items-center ">
-  <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
-    Name:
-  </label>
-  <input className="border border-slate-400 rounded-md p-2  mb-3 pr-11 " />
-  <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
-    Email:
-  </label>
-  <input
-    type="text"
-    className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
-  />
 
-  <label htmlFor="password" className="self-start block mb-2 ml-[4rem]">
-    Password:
-  </label>
-  <input
-    type="password"
-    className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
-  />
-
-
-
-
-  <button className="mt-3 border bg-black text-white border-slate-400 rounded-md p-2  pr-[3.8rem] flex justify-center items-center">
-    <p className="ml-12">Create your account </p>
-  </button>
-  <br />
-</div>
-</form> */
-}

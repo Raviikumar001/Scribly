@@ -22,13 +22,18 @@ body{
  @apply rounded-xl  border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur  ;
 }
 
+
 .heading_text{
  @apply inline-block text-xl font-medium;
 }
 
-
-/* @screen md {
-  .medium_header{
-    @apply text-2xl
+@media screen and (min-width: 640px) {
+  .btn_width {
+    width: 21rem;
+    padding: .7rem 0;
   }
-} */
+  .input_width {
+    width: 21rem;
+    padding: .7rem 0;
+  }
+}
