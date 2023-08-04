@@ -1,5 +1,3 @@
-
-
 const Register = () => {
   return (
     <div>
@@ -13,8 +11,8 @@ const Register = () => {
             Create your account
           </h2>
 
-          <button className="mt-3 border border-slate-400 rounded-md p-2 flex justify-center items-center ml-15 pl-[2.4rem] pr-[2.4rem]">
-            <img className="inline w-5" src="/img/google.png" alt="g-logo" />{" "}
+          <button className=" btn_width  mt-3 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
+            <img className="inline w-5" src="/img/google.png" alt="g-logo" />
             <p className="inline pl-2 ">Continue with Google </p>
           </button>
 
@@ -22,49 +20,51 @@ const Register = () => {
           <br />
         </div>
 
-        <form >
+        <form className="form">
           <div className="flex flex-col justify-center items-center ">
             <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
               Name:
             </label>
-            <input className="border border-slate-400 rounded-md p-2  mb-3 pr-11 " />
+            <input className="border border-slate-400 rounded-md p-2  mb-3  " />
             <label htmlFor="email" className="self-start block mb-2 ml-[4rem] ">
               Email:
             </label>
             <input
               type="text"
-              className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
+              className="border border-slate-400 rounded-md p-2  mb-3  "
             />
 
-            <label htmlFor="password" className="self-start block mb-2 ml-[4rem]">
+            <label
+              htmlFor="password"
+              className="self-start block mb-2 ml-[4rem]"
+            >
               Password:
             </label>
             <input
               type="password"
-              className="border border-slate-400 rounded-md p-2  mb-3 pr-11 "
+              className="border border-slate-400 rounded-md p-2  mb-3 "
             />
 
-
-          
-
-            <button className="mt-3 border bg-black text-white border-slate-400 rounded-md p-2  ml-15 px-[3.65rem] py-3">
+            <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
               <p className="">Create your account </p>
             </button>
             <br />
           </div>
         </form>
         <div className="text-center">
-          <p className="text-slate-600">Already have an account? <span className="text-black">Sign in</span></p>
+          <p className="text-slate-600">
+            Already have an account? <span className="text-black">Sign in</span>
+          </p>
         </div>
-      </section >
+      </section>
     </div>
   );
 };
 
 export default Register;
 
-
-{/* <form >
+{
+  /* <form >
 <div className="flex flex-col justify-center items-center ">
   <label htmlFor="name" className="self-start block mb-2 ml-[4rem]">
     Name:
@@ -94,4 +94,5 @@ export default Register;
   </button>
   <br />
 </div>
-</form> */}
+</form> */
+}
