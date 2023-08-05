@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const  Register = () => {
   return (
     <div>
@@ -5,7 +7,7 @@ const  Register = () => {
         <div className="text center flex flex-col justify-center items-center  font-inter ">
           {/* <img width={100} src="/img/logo1.png" alt="logo" /> */}
           <h2 className="text-3xl font-semibold text-center mt-20 ">
-            Scrible Note
+         <Link to='/'>Scrible Note </Link>   
           </h2>
           <h2 className="self-start ml-[4rem]  mt-9 text-xl font-medium  tracking-wide font-inter md:self-auto md:mr-[12rem]">
             Create your account
@@ -53,7 +55,10 @@ const  Register = () => {
         </form>
         <div className="text-center mt-5 md:mb-8">
           <p className="text-slate-600">
-            Already have an account? <span className="text-black">Sign in</span>
+            Already have an account? <span className="text-black">
+              <Link to='/login'>Sign in </Link>
+              
+              </span>
           </p>
         </div>
       </section>

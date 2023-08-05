@@ -1,6 +1,7 @@
 
-import { Login, Register} from './components/pages'
-
+import { Login,Register } from './components/pages';
+import Home from './components/Home';
+import {Routes,Route } from 'react-router-dom'
 
 
 
@@ -9,17 +10,18 @@ function App() {
 
   return (
    
-    <div >
+      <Routes>
+          
+            <Route path='/' element={ <Home />}/>
+            <Route path='/login' element={ <Login />} />
+            <Route path='/register' element={<Register />} />
 
-    <div className='min-h-screen bg_gradient'>
-      {/* <Header />
-      <LandingPage />
-      <Footer /> */}
-      <Login/>
+  
+
+      </Routes>
 
     
-    </div>
-    </div>
+    
   )
 }
 

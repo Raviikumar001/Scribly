@@ -1,6 +1,9 @@
 import Features from "./Features";
 import { Cloud, MarkDown, Free, Download } from "./SvgFiles";
 
+import { Link } from "react-router-dom";
+
+
 const LandingPage = () => {
   return (
     <div className="">
@@ -16,7 +19,8 @@ const LandingPage = () => {
       </div>
       <div className="flex flex-col items-center justify-center mt-5">
         <button className="text-center rounded-md bg-blue-500 p-3 text-white">
-          Sign Up Now
+          <Link to='/register'>Sign Up Now</Link>
+         
         </button>
       </div>
      <img src="img/landing.jpg"  className="mt-6 md:object-fit rounded-md"/>

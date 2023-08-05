@@ -1,5 +1,7 @@
+
 import { useState } from "react";
 import { CrossArrow } from "./SvgFiles";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -27,11 +29,13 @@ const Header = () => {
             >
               <ul className="text-base  mt-4 block postedIn text-left px-3 rounded-md">
                 <li className="py-2">
-                  <a href="www.google.com">Login</a>
+                  {/* <a href="www.google.com">Login</a> */}
+                  <Link to='/login'>Login</Link>
                 </li>
                 <li>
                   {" "}
-                  <a href="www.google.com">Sign Up</a>
+                  {/* <a href="www.google.com">Sign Up</a> */}
+                  <Link to='/register'>Register</Link>
                 </li>
               </ul>
             </section>
