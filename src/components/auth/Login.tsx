@@ -7,7 +7,7 @@ const Register = () => {
             <h2 className="text-3xl font-semibold  mt-32 ">
               Scrible Note
             </h2>
-            <h2 className="self-start ml-[4rem]  mt-9 text-2xl font-medium  tracking-wide font-inter md:self-auto md:mr-[11rem]">
+            <h2 className="self-start ml-[4rem]  mt-9 text-2xl font-medium  tracking-wide font-inter md:self-auto md:mr-[13rem]">
               Welcome Back!
             </h2>
   
@@ -25,17 +25,18 @@ const Register = () => {
             <div className="flex flex-col justify-center items-center ">
               
               <label htmlFor="email" 
-              className="self-start block mb-2 ml-[3.8rem] md:self-auto md:mr-[17.8rem] md:ml-0">
+              className="self-start block mb-2  md:self-auto md:mr-[17.8rem] md:ml-0">
                 Email
               </label>
               <input
                 type="text"
+                
                 className="border border-slate-400 rounded-md p-2  mb-3 input_width"
               />
   
               <label
                 htmlFor="password"
-                className="self-start block mb-2 ml-[3.8rem] md:self-auto md:mr-[15.8rem] md:ml-0"
+                className="self-start block mb-2  md:self-auto md:mr-[15.8rem] md:ml-0"
               >
                 Password
               </label>
