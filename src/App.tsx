@@ -1,5 +1,5 @@
 
-import {Login, Register} from './components/pages'
+import { Register} from './components/pages'
 
 
 
