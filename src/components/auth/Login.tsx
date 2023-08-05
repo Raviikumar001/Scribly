@@ -25,7 +25,7 @@ const Register = () => {
             <div className="flex flex-col justify-center items-center ">
               
               <label htmlFor="email" 
-              className="self-start block mb-2  md:self-auto md:mr-[17.8rem] md:ml-0">
+              className="self-start block mb-2 left-margin  md:self-auto md:mr-[17.8rem] md:ml-0">
                 Email
               </label>
               <input
@@ -36,7 +36,7 @@ const Register = () => {
   
               <label
                 htmlFor="password"
-                className="self-start block mb-2  md:self-auto md:mr-[15.8rem] md:ml-0"
+                className="self-start block mb-2 left-margin md:self-auto md:mr-[15.8rem] md:ml-0"
               >
                 Password
               </label>

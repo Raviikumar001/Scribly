@@ -1,5 +1,5 @@
 
-import { Register} from './components/pages'
+import { Login, Register} from './components/pages'
 
 
 
@@ -15,7 +15,7 @@ function App() {
       {/* <Header />
       <LandingPage />
       <Footer /> */}
-      <Register />
+      <Login/>
 
     
     </div>
