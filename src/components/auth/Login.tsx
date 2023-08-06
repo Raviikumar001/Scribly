@@ -26,26 +26,30 @@ const Register = () => {
           <form className="form mt-3 md:mt-2">
             <div className="flex flex-col justify-center items-center ">
               
-              <label htmlFor="email" 
+              {/* <label htmlFor="email" 
               className="self-start block mb-2 left-margin  md:self-auto md:mr-[17.8rem] md:ml-0">
                 Email
-              </label>
+              </label> */}
               <input
                 type="text"
-                
-                className="border border-slate-400 rounded-md p-2  mb-3 input_width"
+                placeholder="Email"
+                required
+                className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               />
   
-              <label
+              {/* <label
                 htmlFor="password"
                 className="self-start block mb-2 left-margin md:self-auto md:mr-[15.8rem] md:ml-0"
               >
                 Password
-              </label>
+              </label> */}
               <input
                 type="password"
-                className="border border-slate-400 rounded-md p-2  mb-3 input_width"
+                placeholder="Password"
+                className="px-4 py-2 placeholder:text-slate-800  border  border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               />
+
+
   
               <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
                 <p className="">Login in </p>

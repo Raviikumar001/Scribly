@@ -42,8 +42,14 @@ const Header = () => {
           </div>
           <div className="hidden md:block " >
             <ul className="md:flex text-slate-800 md:items-center justify-center">
-              <li className="px-3" >Login In</li>
-              <li className="border p-1 mb-1 rounded-sm">Sign Up</li>
+              <li className="px-3" >
+                <Link to="/login">Login In</Link>
+                </li>
+
+              <li className="border p-1 mb-1 rounded-sm">
+                <Link to="/register">Sign Up</Link>
+                
+                </li>
             </ul>
           </div>
 
