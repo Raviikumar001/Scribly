@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 
 const  Register = () => {
+
+  const  googleAuth = ()=>{
+    window.open(
+     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
+     "-self"
+    )
+ }
+
+
+
   return (
     <div>
       <section className="h-full w-full">
@@ -13,7 +23,7 @@ const  Register = () => {
             Create your account
           </h2>
 
-          <button className=" btn_width  mt-3 border border-slate-400 rounded-md p-2 flex justify-center items-center md:mt-5 ">
+          <button onClick={googleAuth}className=" btn_width  mt-3 border border-slate-400 rounded-md p-2 flex justify-center items-center md:mt-5 ">
             <img className="inline w-5" src="/img/google.png" alt="g-logo" />
             <p className="inline pl-2 ">Continue with Google </p>
           </button>
