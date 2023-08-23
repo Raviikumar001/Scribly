@@ -1,8 +1,11 @@
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
 
- 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
   // const  googleAuth = ()=>{
   //    window.open(
@@ -11,7 +14,15 @@ const Register = () => {
   //    )
   // }
 
-
+    // console.log(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`);
+    
+    const postData = (event:any):void =>{
+      event.preventDefault(); 
+      
+           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password});
+     
+    }
+    console.log(email, "  ", password)
     return (
       <div>
         <section className="h-full w-full">
@@ -38,7 +49,7 @@ const Register = () => {
         
           </div>
   
-          <form className="form mt-3 md:mt-2">
+          <form className="form mt-3 md:mt-2" onSubmit={postData}> 
             <div className="flex flex-col justify-center items-center ">
               
               {/* <label htmlFor="email" 
@@ -49,6 +60,7 @@ const Register = () => {
                 type="text"
                 placeholder="Email"
                 required
+                onChange={(e)=> setEmail(e.target.value)}
                 className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               />
   
@@ -61,13 +73,14 @@ const Register = () => {
               <input
                 type="password"
                 placeholder="Password"
+                onChange={(e)=> setPassword(e.target.value)}
                 className="px-4 py-2 placeholder:text-slate-800  border  border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               />
 
 
   
-              <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
-                <p className="">Login in </p>
+              <button  className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
+                <p >Login in </p>
               </button>
               <br />
             </div>
