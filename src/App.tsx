@@ -6,7 +6,7 @@ import Profile from './components/profile';
 import axios from 'axios';
 
 function App() {
-  const[user,setUser]= useState(null);
+  const[user,setUser]= useState({user:'ravi'});
 
   const getUser= async ()=>{
     try {

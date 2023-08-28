@@ -13,11 +13,11 @@ const Register = () => {
       "-self"
     );
   };
-
+    console.log(name, email, password)
     const submitForm = (e:any):void =>{
         e.preventDefault();
 
-        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{name:name,email: email, password: password});
+        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{username :name,email: email, password: password});
     }
 
 

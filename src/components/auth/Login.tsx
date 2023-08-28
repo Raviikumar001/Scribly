@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Profile from "../profile";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [user, setUser]=useState(null);
   // const  googleAuth = ()=>{
   //    window.open(
   //     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
@@ -19,10 +21,24 @@ const Register = () => {
     const postData = (event:any):void =>{
       event.preventDefault(); 
       
-           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password});
+           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
+            setUser(data.data.user)
+
+
+          
+          });
      
     }
-    console.log(email, "  ", password)
+
+    useEffect(() => {
+      if (user) {
+        setTimeout(() => {
+          <Profile user={user}/>
+        }, 3000);
+      }
+    }, [user]);
+
+  
     return (
       <div>
         <section className="h-full w-full">
