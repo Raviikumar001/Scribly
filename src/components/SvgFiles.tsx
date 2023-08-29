@@ -149,7 +149,7 @@ export const SerchIcon: React.FC = () => {
 export const CrossArrow2: React.FC = () => {
   return (
     <svg
-      className="h-8 w-5 text-gray-600"
+      className="h-8 w-5 text-gray-600 mr-2"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
