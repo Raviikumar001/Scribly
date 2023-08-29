@@ -1,13 +1,28 @@
 import React from "react";
 import { CrossArrow3 } from "../SvgFiles";
-const NotesInfo = () => {
 
+interface infoProps  {
+    notes: boolean,
+    updateNotes: (note:boolean)=> void
+
+}
+
+
+const NotesInfo: React.FC<infoProps> = ({notes, updateNotes}) => {
+
+    const changeValue = ()=>{
+        updateNotes(notes);
+    }
   return (
     <div className="relative ">
-      <div className="hidden text-md absolute top-28 border border-gray-900 left-[10%] w-[80%] rounded-md ">
+
+      <div className="text-md absolute top-28 border border-gray-900 left-[10%] w-[80%] rounded-md backdrop-blur ">
         <div className="p-3 flex justify-between border-b-2 border-gray-150  w-[100%]">
           <h3 className="font-semibold">Document</h3>
-          <CrossArrow3 onClick={()=> {}}/>
+          <button onClick={changeValue}>
+          <CrossArrow3  />
+
+          </button>
         </div>
 
         <div className="pl-3 flex justify-between w-[95%]">
