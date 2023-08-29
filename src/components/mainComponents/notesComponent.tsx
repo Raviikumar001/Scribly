@@ -23,6 +23,10 @@ const NotesComponent = () => {
         {inputText && ( <button onClick={onMouseClick}><CrossArrow2 /></button>  ) }
       </div>
 
+      <div>
+        
+      </div>
+
     </div>
   )
 }

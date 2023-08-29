@@ -162,3 +162,49 @@ export const CrossArrow2: React.FC = () => {
     </svg>
   );
 };
+
+export const Info: React.FC = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+</svg>
+
+  );
+};
+
+export const Action: React.FC = ()=> {
+
+  return(
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><rect x="0" fill="none" width="24" height="24"></rect><path d="M12 2C6.486 2 2 6.486 2 12c0 5.514 4.486 10 10 10 5.514 0 10-4.486 10-10C22 6.486 17.514 2 12 2zM12 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8S16.411 20 12 20zM13.5 12c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5 0.672-1.5 1.5-1.5S13.5 11.172 13.5 12zM9 12c0 0.828-0.672 1.5-1.5 1.5S6 12.828 6 12s0.672-1.5 1.5-1.5S9 11.172 9 12zM18 12c0 0.828-0.672 1.5-1.5 1.5S15 12.828 15 12s0.672-1.5 1.5-1.5S18 11.172 18 12z"></path></svg>
+
+  )
+}
+
+
+export const BackArrow: React.FC = ()=> {
+
+  return(
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+</svg>
+
+  )
+}
+
+
+export const CrossArrow3: React.FC = () => {
+  return (
+    <svg
+      className="h-8 w-5 text-gray-600 "
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+};
