@@ -2,16 +2,25 @@
 import React,{useState} from 'react'
 import { BackArrow, Info,Action } from '../SvgFiles'
 import NotesInfo from './NotesInfo';
-
+import ActionComponent from './ActionComponent';
 
 
 const EditorComponent = () => {
      
     const [info, setInfo] = useState(false);
+    const [ischecked, setIschecked]= useState(true) 
+    const [showchecked, setShowChecked] = useState(false)
     const updateInfo= ()=>{
         setInfo(info => !info)
     }
+    const toggleShowCheck =()=>{
+      setShowChecked(showchecked=> !showchecked)
+    }
 
+    const toggleCheckbox =()=>{
+      setIschecked(ischecked=> !ischecked)
+    }
+    
   return (
 
     <React.Fragment>
@@ -19,7 +28,7 @@ const EditorComponent = () => {
     <>
     <button ><BackArrow /> </button>
     <button onClick={updateInfo}><Info  /> </button> 
-    <button><Action />  </button> 
+    <button onClick={toggleShowCheck}><Action />  </button> 
     </>
 
 
@@ -34,8 +43,12 @@ const EditorComponent = () => {
     />
     }
     </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur iure est cupiditate incidunt atque omnis, mollitia beatae error, officiis nostrum tenetur obcaecati dolore quasi ad dolorum, dolorem corrupti eaque?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur saepe, facilis doloremque sunt quia sapiente mollitia, perferendis deserunt blanditiis praesentium asperiores alias aliquam ratione distinctio ut quos atque ad accusamus?</p>
+
+    <div>
+  {showchecked && <ActionComponent ischecked={ischecked} updateCheck={toggleCheckbox} />}    
+    </div>
+    {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur iure est cupiditate incidunt atque omnis, mollitia beatae error, officiis nostrum tenetur obcaecati dolore quasi ad dolorum, dolorem corrupti eaque?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur saepe, facilis doloremque sunt quia sapiente mollitia, perferendis deserunt blanditiis praesentium asperiores alias aliquam ratione distinctio ut quos atque ad accusamus?</p> */}
     </React.Fragment>
   )
 }
