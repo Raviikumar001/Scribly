@@ -7,10 +7,10 @@ import EditorComponent from './EditorComponent'
 const MainApp = () => {
      
   return (
-       <div className='ml-2'>
-           {/* <MainHeader />
-            <NotesComponent /> */}
-           <EditorComponent />   
+       <div>
+           <MainHeader />
+            <NotesComponent />
+           {/* <EditorComponent />    */}
        </div>
   )
 }

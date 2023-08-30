@@ -1,5 +1,11 @@
 import {useState} from 'react'
 import  {SerchIcon, CrossArrow2 }from '../SvgFiles'
+import NewNote from './NewNote'
+
+
+
+
+
 const NotesComponent = () => {
   const [inputText, setInputText] = useState("")
 
@@ -11,10 +17,11 @@ const NotesComponent = () => {
     setInputText("")
   }
 
-
+  
+  
   return (
     <div>
-      <div className='flex  justify-center'>
+      <div className='flex justify-center'>
         <button className='pl-3 pr-2'>
         <SerchIcon />
         </button>
@@ -23,7 +30,23 @@ const NotesComponent = () => {
         {inputText && ( <button onClick={onMouseClick}><CrossArrow2 /></button>  ) }
       </div>
 
-      <div>
+      <div className=''>
+        
+        {/* <div className='border border-r-0 border-slate-300 pl-3'>
+          <h3 className='font-medium pt-1'>This is a new title</h3>
+          <TruncatedText text={paragraph} limit={7}/>
+        </div>
+        <div className='border border-r-0 border-slate-300 pl-3'>
+          <h3 className='font-medium pt-1'>This is a new title</h3>
+          <TruncatedText text={paragraph} limit={7}/>
+        </div>
+
+
+        <div className='border border-r-0 border-slate-300 pl-3'>
+          <h3 className='font-medium pt-1'>This is a new title</h3>
+          <TruncatedText text={paragraph} limit={7}/>
+        </div> */}
+
         
       </div>
 
