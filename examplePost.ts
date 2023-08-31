@@ -1,8 +1,18 @@
 
 
-const SampleNotes = [
+export const SampleNotes = [
     {
-        creator: 1234,
-        notesText: "lorem ljlaj ljflkaj ljk lajflk jlkjd lkajlfk js "
-    }
+        notes: "How to prepare soup sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+        
+    },
+    {
+        notes: "Mystery Novel sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+        
+    },
+    {
+        notes: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+        
+    },
 ]
+
+
