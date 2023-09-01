@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { SerchIcon, CrossArrow2 } from "../SvgFiles";
-import { SampleNotes } from "../../../examplePost";
+
 import NewNote from "./Notes";
 
-// import NewNote from "./Notes";
-// import {SampleNotes} from '../../../examplePost'
-// import { useState } from "react";
+interface Notes{
+  notes: string;
+}
 
-const NotesComponent: React.FC = () => {
+interface Props{
+  noteItems: Notes[]
+}
+
+const NotesComponent: React.FC<Props> = ({noteItems}) => {
   const [inputText, setInputText] = useState("");
-  const [note, setNote] = useState(SampleNotes);
+ 
 
   const Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
@@ -40,7 +44,7 @@ const NotesComponent: React.FC = () => {
         )}
       </div>
 
-      {note.map((item) => (
+      {noteItems.map((item) => (
         <NewNote notes={item.notes} />
       ))}
     </div>
