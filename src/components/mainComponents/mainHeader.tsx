@@ -11,7 +11,7 @@ function MainHeader() {
 
   const handleNote = ()=> {
      const newNote = {
-      notes: "Wheel of time is actually a very good novel, and now it has been done into a webseries also"
+      notes: ""
      }
 
      setNote(prev => [...prev,newNote]);
