@@ -1,8 +1,8 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../profile";
-import { useNavigate } from "react-router-dom";
+
 
 const Register = () => {
 
@@ -21,12 +21,12 @@ const Register = () => {
     const postData = (event:any):void =>{
       event.preventDefault(); 
       
-           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
-            setUser(data.data.user)
+          //  axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
+          //   setUser(data.data.user)
 
 
           
-          });
+          // });
      
     }
 

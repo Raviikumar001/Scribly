@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,17 +7,17 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const googleAuth = () => {
-    window.open(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
-      "-self"
-    );
-  };
+  // const googleAuth = () => {
+  //   window.open(
+  //     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
+  //     "-self"
+  //   );
+  // };
     console.log(name, email, password)
     const submitForm = (e:any):void =>{
         e.preventDefault();
 
-        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{username :name,email: email, password: password});
+        // axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{username :name,email: email, password: password});
     }
 
 
