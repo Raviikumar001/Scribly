@@ -1,12 +1,12 @@
-import { useState, } from 'react';
-import { Login,Register } from './components/pages';
-import Home from './components/Home';
+// import { useState, } from 'react';
+// import { Login,Register } from './components/pages';
+// import Home from './components/Home';
 import {Routes,Route } from 'react-router-dom'
 import Profile from './components/profile';
 // import axios from 'axios';
 
 function App() {
-  const[user,setUser]= useState({user:'ravi'});
+  // const[user,setUser]= useState({user:'ravi'});
 
   // const getUser= async ()=>{
   //   try {
@@ -31,10 +31,10 @@ function App() {
    
       <Routes>
 
-            {/* <Route path='/' element={ <Home />}/> */}
-            <Route path='/'  element={user ? <Profile user={user}/>: <Home />}/>
-            <Route path='/login' element={ <Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path='/' element={ <Profile />}/>
+            {/* <Route path='/'  element={user ? <Profile user={user}/>: <Home />}/> */}
+            {/* <Route path='/login' element={ <Login />} />
+            <Route path='/register' element={<Register />} /> */}
             
      
 
