@@ -2,9 +2,9 @@ import React from 'react'
 import MainHeader from './mainHeader'
 
 
-import EditorComponent from './EditorComponent'
+// import EditorComponent from './EditorComponent'
 
-const MainApp = () => {
+const MainApp:React.FC = () => {
      
   return (
        <div>

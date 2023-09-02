@@ -1,7 +1,7 @@
-import React from "react";
+
 import MainApp from "./mainComponents/mainApp";
 
-const Profile = (userDetails: any) => {
+const Profile = () => {
 
     // const user = userDetails.user;
     // const logout = (): any => {

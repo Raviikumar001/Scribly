@@ -12,7 +12,7 @@ interface SettingsProps{
 function SettingsComponent(props: SettingsProps) {
   const [accountInfo, setAccountInfo] = useState(true);
   const [tools, setTools] = useState(false);
-  
+  console.log(tools)
   const toggleaccount= ()=> {
     setAccountInfo(prev => !prev)
   }
@@ -28,7 +28,7 @@ function SettingsComponent(props: SettingsProps) {
       <div className="bg-white w-[90%] rounded-md">
         <div className="p-3 border-b-2">
           <div className="flex items-center justify-between ">
-            <h3>Settings</h3>
+            <h3 className="text-gray-500">Settings</h3>
             <button onClick={props.toggleSetting}><CrossArrow3 /> </button>
           </div>
         </div>
@@ -53,7 +53,7 @@ function SettingsComponent(props: SettingsProps) {
             <p className="text-sm font-semibold text-slate-500">TOOLS</p>
 
             <button className="flex  w-[90%] justify-between border border-slate-500 p-2 mt-2 ">
-              <div>Export Notes</div>
+              <div className="text-gray-500">Export Notes</div>
               <Down />
             </button>
           </div>  }
