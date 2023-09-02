@@ -9,7 +9,7 @@ interface TextProps {
 }
 const TruncatedText: React.FC<TextProps> = ({ text, limit }) => {
   const words = text.split(/\s+/);
-  console.log(words);
+ 
   const TruncatedText = words.slice(0, limit).join(" ");
   return <p className="text-slate-600 pt-1 pb-1 ">{TruncatedText}...</p>;
 };
@@ -21,7 +21,7 @@ const TruncatedTextTitle: React.FC<TextProps> = ({ text, limit }) => {
 };
 
 const NewNote: React.FC<NoteItem> = ({ notes }) => {
-  console.log(notes);
+  
 
   return (
     <div>
