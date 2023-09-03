@@ -1,16 +1,19 @@
 
 
 export const SampleNotes = [
-    {
-        notes: "How to prepare soup sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+    {   id:1, title:"How to make persoanl brand",
+        notes: "How to prepare soup sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis.",
+        date:'Sept 4, 2023'
         
     },
-    {
-        notes: "Mystery Novel sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+    {   id:2, title:"How to make persoanl chapati",
+        notes: "Mystery Novel sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis.",
+        date:'Sept 4, 2023'
         
     },
-    {
-        notes: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis."
+    {   id:3, title:"How to master code ",
+        notes: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis.",
+        date:'Sept 4, 2023'
         
     },
 ]

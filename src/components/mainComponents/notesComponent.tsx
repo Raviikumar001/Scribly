@@ -4,7 +4,11 @@ import { SerchIcon, CrossArrow2 } from "../SvgFiles";
 import NewNote from "./Notes";
 
 interface Notes{
+  id: number,
+  title: string,
+
   notes: string;
+  date: string
 }
 
 interface Props{
@@ -22,6 +26,8 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
   const onMouseClick = () => {
     setInputText("");
   };
+
+  
 
   return (
     <div>
@@ -45,7 +51,7 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
       </div>
 
       {noteItems.map((item) => (
-        <NewNote notes={item.notes} />
+        <NewNote notes={item} />
       ))}
     </div>
   );

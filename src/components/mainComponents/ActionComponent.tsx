@@ -1,4 +1,4 @@
-
+import { useState } from "react"
 
 interface ActionProps {
     ischecked:boolean,
@@ -6,7 +6,7 @@ interface ActionProps {
 }
 
 const ActionComponent:React.FC<ActionProps> = ({ischecked,updateCheck}) => {
-    // const [cheacked, setIschecked]= useState(false);
+    const [cheacked, setIschecked]= useState(false);
     
     const togglechecked = ()=>{
         updateCheck(ischecked)

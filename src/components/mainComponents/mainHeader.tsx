@@ -14,11 +14,23 @@ function SettingsComponent(props: SettingsProps) {
   const [tools, setTools] = useState(false);
   console.log(tools)
   const toggleaccount= ()=> {
-    setAccountInfo(prev => !prev)
+   
+      setAccountInfo(prev => {
+         if(prev == accountInfo) {return true}
+         else{
+          return false
+         }
+      })
+    
+    
   }
 
   const toogleTools= ()=> {
-    toggleaccount();
+    if(tools == tools)
+    {
+      setAccountInfo(false)
+    }
+    
     setTools(prev => !prev)
   }
 
@@ -77,7 +89,10 @@ function MainHeader() {
 
   const handleNote = () => {
     const newNote = {
-      notes: "",
+      id:1,
+      title:"",
+      date: "",
+      notes: ""
     };
 
     setNote((prev) => [...prev, newNote]);
@@ -96,7 +111,7 @@ function MainHeader() {
     console.log(showSetting)
     setShowSetting((prev) => !prev);
   };
-
+  console.log(note)
   return (
     <div className="relative h-screen">
       {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} /> : ""}
