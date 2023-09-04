@@ -39,35 +39,35 @@ function SettingsComponent(props: SettingsProps) {
 
 
   return (
-    <div className="fixed top-0 left-0  h-screen bg-slate-300 bg-opacity-30 flex justify-center items-center w-[100%]">
-      <div className="bg-white w-[90%] rounded-md">
+    <div className="fixed top-0 left-0  h-screen bg-slate-400 bg-opacity-30 flex justify-center items-center w-[100%]">
+      <div className="bg-white w-[90%] rounded-md md:w-[43%]">
         <div className="p-3 border-b-2">
           <div className="flex items-center justify-between ">
-            <h3 className="text-gray-500">Settings</h3>
+            <h3 className="text-gray-900 font-semibold">Settings</h3>
             <button onClick={props.toggleSetting}><CrossArrow3 /> </button>
           </div>
         </div>
         <div className="border-b-2 ">
-          <div className="text-blue-800 flex justify-evenly mb-5 border-b-2 p-2">
+          <div className="text-blue-800 flex justify-evenly mb-5 border-b-2 p-2 md:flex md:justify-evenly">
             <button className="p-1 border-b-2 focus:border-blue-900" onClick={toggleaccount}>
               Account
             </button>
-            <button className="p-1 border-b-2  focus:border-blue-900" onClick={toogleTools}>
+            <button className="p-1 border-b-2  focus:border-blue-900 " onClick={toogleTools}>
               Tools
             </button>
           </div>
 
 
-        {accountInfo? <div className="pl-3 mb-5 mr-3">
+        {accountInfo? <div className="pl-3 mb-5 mr-3 md:p-[10%]">
                 
-                <p className="text-sm text-slate-500">ACCOUNT</p>
-                <div className="border border-gray-300"><p className="p-3 text-center text-gray-600 mt-1">samcollins9899@gmail.com</p></div>
+                <p className="text-sm text-slate-500 md:ml-16">ACCOUNT</p>
+                <div className="border border-gray-300 md:mt-3 md:m-16"><p className="p-3 text-center text-gray-800 mt-1 md:">samcollins9899@gmail.com</p></div>
 
-                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center "><button className="p-3">Log Out</button></div>
-                </div> :  <div className="ml-2 mb-5 mr-1">
-            <p className="text-sm font-semibold text-slate-500">TOOLS</p>
+                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16"><button className="p-3">Log Out</button></div>
+                </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
+            <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
 
-            <button className="flex  w-[90%] justify-between border border-slate-500 p-2 mt-2 ">
+            <button className="flex  w-[90%] justify-between border border-slate-500 p-2 mt-2 md:m-16 md:mt-2 md:w-[60%]">
               <div className="text-gray-500">Export Notes</div>
               <Down />
             </button>
@@ -117,10 +117,10 @@ function MainHeader() {
   };
 console.log(note)
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen ">
       {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} toggleValue={toggleValue}/> : ""}
     <div onClick={toggleValue}>
-    <div className="p-3 flex justify-between border-b-2 border-gray-150" >
+    <div className="p-3 flex justify-between border-b-2 border-gray-150 "  >
        <button onClick={toggleMenu} > <Menu /></button> 
         <p className="text-md font-medium">All Notes</p>
         

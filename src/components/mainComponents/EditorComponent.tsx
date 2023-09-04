@@ -24,9 +24,10 @@ const EditorComponent:React.FC  = () => {
   return (
 
     <div>
-    <div className='p-3 flex justify-between border-b-2 border-gray-150'>
+    <div className='p-3 flex justify-between border-b-2 border-gray-150 md:border-2  '>
     <>
-     <Link to="/"><BackArrow /></Link> 
+    <div className='md:hidden'><Link to="/"><BackArrow /></Link> </div>  
+     
     <button onClick={updateInfo}><Info  /> </button>
     <button onClick={toggleShowCheck}><Action />  </button> 
     </>
