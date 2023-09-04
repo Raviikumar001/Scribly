@@ -16,6 +16,11 @@ export const SampleNotes = [
         date:'Sept 4, 2023'
         
     },
+    {   id:4, title:"How to master code react",
+        notes: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, est minus? Dolores rerum nobis, quod reiciendis temporibus eius corporis.",
+        date:'Sept 4, 2023'
+        
+    },
 ]
 
 

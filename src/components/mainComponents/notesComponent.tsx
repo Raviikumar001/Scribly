@@ -51,7 +51,7 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
       </div>
 
       {noteItems.map((item) => (
-        <NewNote notes={item} />
+        <NewNote notes={item} key={item.id} />
       ))}
     </div>
   );

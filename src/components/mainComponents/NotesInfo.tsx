@@ -15,8 +15,8 @@ const NotesInfo: React.FC<infoProps> = ({notes, updateNotes}) => {
     }
   return (
     <div className="relative ">
-
-      <div className="text-md absolute top-28 border border-gray-900 left-[10%] w-[80%] rounded-md backdrop-blur ">
+      <div className="fixed top-0 left-0  h-screen bg-slate-300 bg-opacity-30 flex justify-center items-center w-[100%]">
+      <div className="bg-white text-md absolute top-28 border border-slate-300 left-[10%] w-[80%] rounded-md backdrop-blur md:w-[30%] md:top-44 md:left-[40%]">
         <div className="p-3 flex justify-between border-b-2 border-gray-150  w-[100%]">
           <h3 className="font-semibold">Document</h3>
           <button onClick={changeValue}>
@@ -24,8 +24,8 @@ const NotesInfo: React.FC<infoProps> = ({notes, updateNotes}) => {
 
           </button>
         </div>
-
-        <div className="pl-3 flex justify-between w-[95%]">
+    <div className="text-slate-700 leading-relaxed text-md mb-9 mt-6">
+        <div className="pl-3 flex justify-between w-[95%] ">
         <p>Created</p>
         <p>time</p>
         </div>
@@ -39,8 +39,10 @@ const NotesInfo: React.FC<infoProps> = ({notes, updateNotes}) => {
         <p>428</p>
         </div>
 
+    </div>
+
       </div>
-      
+      </div>
     </div>
   );
 };

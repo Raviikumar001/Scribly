@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Profile from "./components/profile";
 import axios from "axios";
 import EditorComponent from "./components/mainComponents/EditorComponent";
+import CreateComponent from "./components/mainComponents/CreateNoteComponent";
 
 function App() {
   const [user, setUser] = useState({ user: "ravi" });
@@ -34,7 +35,7 @@ function App() {
     
       <Routes>
         <Route path="/" element={user ? <Profile user={user} /> : <Home />} />
-        <Route path="/create-note" element={<EditorComponent />} />
+        <Route path="/create-note" element={<CreateComponent />} />
         <Route path="/edit-note/:id" element={<EditorComponent />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

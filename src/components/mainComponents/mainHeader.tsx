@@ -4,6 +4,9 @@ import NotesComponent from "./notesComponent";
 import { SampleNotes } from "../../../examplePost";
 import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
+import { Link } from "react-router-dom";
+
+import {v4 as uuid} from 'uuid';
 
 interface SettingsProps{
   toggleSetting: ()=>void
@@ -89,13 +92,14 @@ function MainHeader() {
 
   const handleNote = () => {
     const newNote = {
-      id:1,
+      id: uuid(),
       title:"",
       date: "",
       notes: ""
     };
-
+    
     setNote((prev) => [...prev, newNote]);
+    console.log(note)
   };
 
   const toggleMenu = () => {
@@ -111,18 +115,21 @@ function MainHeader() {
     console.log(showSetting)
     setShowSetting((prev) => !prev);
   };
-  console.log(note)
+console.log(note)
   return (
     <div className="relative h-screen">
-      {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} /> : ""}
+      {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} toggleValue={toggleValue}/> : ""}
     <div onClick={toggleValue}>
     <div className="p-3 flex justify-between border-b-2 border-gray-150" >
        <button onClick={toggleMenu} > <Menu /></button> 
         <p className="text-md font-medium">All Notes</p>
-        <button onClick={handleNote}>
-         
+        
+
+          <button onClick={handleNote}>
           <WriteNote />
-        </button>
+
+          </button>
+        
       </div>
       
       <NotesComponent  noteItems={note}  />

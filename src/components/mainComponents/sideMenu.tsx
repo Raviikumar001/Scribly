@@ -4,10 +4,10 @@ import { Setting,AllNotes } from '../SvgFiles'
 interface Props {
   toggelMenu : ()=>void;
   toggleseting: ()=> void;
-
+  toggleValue: ()=> void;
 }
 
-const SideMenu: React.FC<Props> = ({toggelMenu,toggleseting}) => {
+const SideMenu: React.FC<Props> = ({toggelMenu,toggleseting, toggleValue}) => {
 
   const ShowSettings = ()=> {
     toggelMenu();
@@ -16,9 +16,11 @@ const SideMenu: React.FC<Props> = ({toggelMenu,toggleseting}) => {
   const showNotes = ()=>{
     toggelMenu()
   }
+
+  // className='fixed  bg-gray-300 h-[95%] bg-opacity-30 w-[100%]' 
   return (
-   
-    <div className="bg-white absolute h-full w-[50%]">
+    <div  onClick={toggleValue} className='fixed  bg-gray-300 h-[95%] bg-opacity-30 w-[100%]'  >
+      <div className="bg-white absolute h-full w-[50%] md:w-[20%]">
         <div className='mt-12 border-2 border-gray-150 '>
             <div className='p-3 flex items-center '>
              <AllNotes /> 
@@ -32,6 +34,8 @@ const SideMenu: React.FC<Props> = ({toggelMenu,toggleseting}) => {
             </div>
         </div>
    </div>
+    </div>
+    
   
   )
 }

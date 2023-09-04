@@ -5,7 +5,7 @@ import NotesInfo from './NotesInfo';
 import ActionComponent from './ActionComponent';
 import { Link } from 'react-router-dom';
 
-const EditorComponent = () => {
+const EditorComponent:React.FC  = () => {
      
     const [info, setInfo] = useState(false);
     const [ischecked, setIschecked]= useState(false) 
