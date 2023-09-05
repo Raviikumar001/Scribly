@@ -166,7 +166,6 @@ export const Info: React.FC = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-    
     >
       <path
         stroke-linecap="round"
@@ -200,7 +199,6 @@ export const BackArrow: React.FC = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      
     >
       <path
         stroke-linecap="round"
@@ -275,6 +273,15 @@ export const Down: React.FC = () => {
         stroke-linejoin="round"
         d="M8.25 4.5l7.5 7.5-7.5 7.5"
       />
+    </svg>
+  );
+};
+
+export const Toggle: React.FC = () => {
+  return (
+    <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <rect x="0" fill="none" width="24" height="24"></rect>
+      <path d="M20 4H4A2 2 0 0 0 2 6V18a2 2 0 0 0 2 2H20a2 2 0 0 0 2-2V6A2 2 0 0 0 20 4ZM4 6H7V18H4ZM20 18H9V6H20Z"></path>
     </svg>
   );
 };

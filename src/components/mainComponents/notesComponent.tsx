@@ -4,11 +4,11 @@ import { SerchIcon, CrossArrow2 } from "../SvgFiles";
 import NewNote from "./Notes";
 
 interface Notes{
-  id: number,
+  id: string,
   title: string,
 
-  notes: string;
-  date: string
+  body: string;
+  dateCreated: string
 }
 
 interface Props{
@@ -27,7 +27,7 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
     setInputText("");
   };
 
-  
+  console.log(noteItems)
 
   return (
     <div>
@@ -49,10 +49,11 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
           </button>
         )}
       </div>
-
+     <div className="overflow-y-auto h-screen">
       {noteItems.map((item) => (
         <NewNote notes={item} key={item.id} />
       ))}
+      </div>       
     </div>
   );
 };

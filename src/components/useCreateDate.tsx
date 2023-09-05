@@ -1,5 +1,5 @@
 
-const useCreateDate = ()=>{
+const useCreateDate = ():string=>{
 
     const dataObj = new Date();
     const month =dataObj.getMonth();
@@ -31,7 +31,7 @@ const useCreateDate = ()=>{
         break;
     }
 
-    const date = `${monthName} ${dataObj.getDate()}, ${dataObj.getFullYear()} [${dataObj.getHours}: ${dataObj.getMinutes}]`
+    const date = `${monthName} ${dataObj.getDate()}, ${dataObj.getFullYear()} [${dataObj.getHours()}: ${dataObj.getMinutes()}]`
     return date;
 }
 

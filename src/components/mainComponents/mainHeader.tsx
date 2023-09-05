@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Menu, WriteNote } from "../SvgFiles";
 import NotesComponent from "./notesComponent";
-import { SampleNotes } from "../../../examplePost";
 import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
 import { Link } from "react-router-dom";
@@ -11,6 +10,8 @@ import {v4 as uuid} from 'uuid';
 interface SettingsProps{
   toggleSetting: ()=>void
 }
+
+
 
 function SettingsComponent(props: SettingsProps) {
   const [accountInfo, setAccountInfo] = useState(true);
@@ -61,13 +62,13 @@ function SettingsComponent(props: SettingsProps) {
         {accountInfo? <div className="pl-3 mb-5 mr-3 md:p-[10%]">
                 
                 <p className="text-sm text-slate-500 md:ml-16">ACCOUNT</p>
-                <div className="border border-gray-300 md:mt-3 md:m-16"><p className="p-3 text-center text-gray-800 mt-1 md:">samcollins9899@gmail.com</p></div>
+                <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">samcollins9899@gmail.com</p></div>
 
-                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16"><button className="p-3">Log Out</button></div>
+                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3">Log Out</button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
 
-            <button className="flex  w-[90%] justify-between border border-slate-500 p-2 mt-2 md:m-16 md:mt-2 md:w-[60%]">
+            <button className="flex  w-[90%] justify-between border border-slate-500 p-2 mt-2 md:m-16 md:mt-2 md:w-[60%] md:mb-40">
               <div className="text-gray-500">Export Notes</div>
               <Down />
             </button>
@@ -81,26 +82,38 @@ function SettingsComponent(props: SettingsProps) {
     </div>
   );
 }
+interface NoteItem {
+  id: string,
+  title: string,
 
+  body: string;
+  dateCreated: string
+}
 
+interface Props {
+  notes:NoteItem[]
+  AddNote: ()=>void;
+  activeNote:boolean,
+  addActiveNote:React.Dispatch<React.SetStateAction<boolean>> 
+}
 
-function MainHeader() {
-  const [note, setNote] = useState(SampleNotes);
+function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
+
   const [menu, setMenu] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
   
 
-  const handleNote = () => {
-    const newNote = {
-      id: uuid(),
-      title:"",
-      date: "",
-      notes: ""
-    };
+  // const handleNote = () => {
+  //   const newNote = {
+  //     id: uuid(),
+  //     title:"",
+  //     date: "",
+  //     notes: ""
+  //   };
     
-    setNote((prev) => [...prev, newNote]);
-    console.log(note)
-  };
+  //   setNote((prev) => [...prev, newNote]);
+  //   console.log(note)
+  // };
 
   const toggleMenu = () => {
     setMenu((prev) => !prev);
@@ -115,7 +128,7 @@ function MainHeader() {
     console.log(showSetting)
     setShowSetting((prev) => !prev);
   };
-console.log(note)
+
   return (
     <div className="relative h-screen ">
       {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} toggleValue={toggleValue}/> : ""}
@@ -125,14 +138,14 @@ console.log(note)
         <p className="text-md font-medium">All Notes</p>
         
 
-          <button onClick={handleNote}>
+          <button onClick={AddNote}>
           <WriteNote />
 
           </button>
         
       </div>
       
-      <NotesComponent  noteItems={note}  />
+      <NotesComponent  noteItems={notes}  />
     </div >
     {showSetting ?<SettingsComponent toggleSetting={toggleseting} /> : '' }   
     </div>
