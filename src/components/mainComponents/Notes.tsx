@@ -10,12 +10,14 @@ interface NoteItem {
 
 interface NoteProps {
   notes: NoteItem;
+  activeNote:string,
+  setActiveNote:React.Dispatch<React.SetStateAction<string>> 
 }
 interface TextProps {
   text: string;
   limit: number;
 }
-const TruncatedText: React.FC<TextProps> = ({ text, limit }) => {
+const TruncatedText: React.FC<TextProps> = ({ text, limit}) => {
   const words = text.split(/\s+/);
 
   const TruncatedText = words.slice(0, limit).join(" ");
@@ -28,27 +30,31 @@ const TruncatedTextTitle: React.FC<TextProps> = ({ text, limit }) => {
   return <h2 className="font-medium pt-1 pb-1">{TruncatedText}</h2>;
 };
 
-const NewNote: React.FC<NoteProps> = ({ notes }) => {
+
+
+const NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
  console.log(notes)
   
+  
+
   return (
     <div >
 
     <div >
       {notes.body ? (
-        <Link to={`/edit-note/${notes.id}`}>
+        // <Link to={`/edit-note/${notes.id}`}>
           <div className="border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300">
             <TruncatedTextTitle text={notes.title} limit={5} />
             {/* <h3 className='font-medium pt-1'>This is a new title</h3> */}
             <TruncatedText text={notes.body} limit={7} />
           </div>
-        </Link>
+       
       ) : (
-        <Link to={`create-note`}>
-          <div className="border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300">
+        // <Link to={`create-note`}>
+          <div className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300  ${notes.id === activeNote &&' active:bg-slate-400' }`} onClick={() => setActiveNote(notes.id)}>
             <h2 className="pt-3 pb-3 text-gray-700">New Note...</h2>
           </div>
-        </Link>
+        
       )}
     </div>
     </div>

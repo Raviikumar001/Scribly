@@ -12,10 +12,12 @@ interface Notes{
 }
 
 interface Props{
-  noteItems: Notes[]
+  noteItems: Notes[],
+  activeNote:string,
+  setActiveNote:React.Dispatch<React.SetStateAction<string>> 
 }
 
-const NotesComponent: React.FC<Props> = ({noteItems}) => {
+const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) => {
   const [inputText, setInputText] = useState("");
  
 
@@ -49,9 +51,9 @@ const NotesComponent: React.FC<Props> = ({noteItems}) => {
           </button>
         )}
       </div>
-     <div className="overflow-y-auto h-screen">
+     <div className="overflow-y-auto h-[35rem]">
       {noteItems.map((item) => (
-        <NewNote notes={item} key={item.id} />
+        <NewNote notes={item} key={item.id} activeNote={activeNote} setActiveNote={setActiveNote}  />
       ))}
       </div>       
     </div>

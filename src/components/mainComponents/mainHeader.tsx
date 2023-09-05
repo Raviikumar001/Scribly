@@ -93,8 +93,8 @@ interface NoteItem {
 interface Props {
   notes:NoteItem[]
   AddNote: ()=>void;
-  activeNote:boolean,
-  addActiveNote:React.Dispatch<React.SetStateAction<boolean>> 
+  activeNote:string,
+  addActiveNote:React.Dispatch<React.SetStateAction<string>> 
 }
 
 function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
@@ -103,17 +103,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
   const [showSetting, setShowSetting] = useState(false);
   
 
-  // const handleNote = () => {
-  //   const newNote = {
-  //     id: uuid(),
-  //     title:"",
-  //     date: "",
-  //     notes: ""
-  //   };
-    
-  //   setNote((prev) => [...prev, newNote]);
-  //   console.log(note)
-  // };
+
 
   const toggleMenu = () => {
     setMenu((prev) => !prev);
@@ -130,7 +120,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
   };
 
   return (
-    <div className="relative h-screen ">
+    <div className="relative ">
       {menu? <SideMenu toggelMenu={toggleMenu} toggleseting={toggleseting} toggleValue={toggleValue}/> : ""}
     <div onClick={toggleValue}>
     <div className="p-3 flex justify-between border-b-2 border-gray-150 "  >
@@ -145,7 +135,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
         
       </div>
       
-      <NotesComponent  noteItems={notes}  />
+      <NotesComponent  noteItems={notes} setActiveNote={addActiveNote} activeNote={activeNote} />
     </div >
     {showSetting ?<SettingsComponent toggleSetting={toggleseting} /> : '' }   
     </div>
