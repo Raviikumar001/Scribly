@@ -29,7 +29,7 @@ const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) =
     setInputText("");
   };
 
-  console.log(noteItems)
+
 
   return (
     <div>

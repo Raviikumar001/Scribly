@@ -5,10 +5,12 @@ import NotesInfo from './NotesInfo';
 import ActionComponent from './ActionComponent';
 import { Link } from 'react-router-dom';
 
+interface Props {
+setSidebar: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 
-
-const EditorComponent:React.FC  = () => {
+const EditorComponent:React.FC<Props>  = ({setSidebar}) => {
      
     const [info, setInfo] = useState(false);
     const [ischecked, setIschecked]= useState(false) 
@@ -30,7 +32,7 @@ const EditorComponent:React.FC  = () => {
     <div className='p-3 flex justify-between border-b-2 border-gray-150 md:border-2  '>
     <>
     <div className='md:hidden'><Link to="/"><BackArrow /></Link> </div>  
-    <div className='sm:hidden md:block'> <Toggle /></div>
+    <div className='hidden md:block' onClick={()=> setSidebar(prev=>!prev)}> <Toggle /></div>
     <button onClick={updateInfo}><Info  /> </button>
     <button onClick={toggleShowCheck}><Action />  </button> 
     </>

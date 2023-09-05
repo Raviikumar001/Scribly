@@ -125,7 +125,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
     <div onClick={toggleValue}>
     <div className="p-3 flex justify-between border-b-2 border-gray-150 "  >
        <button onClick={toggleMenu} > <Menu /></button> 
-        <p className="text-md font-medium">All Notes</p>
+        <p className="text-md font-medium pb-1">All Notes</p>
         
 
           <button onClick={AddNote}>
