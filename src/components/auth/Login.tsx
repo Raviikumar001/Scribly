@@ -1,14 +1,27 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../profile";
 
+interface Props{
+  username: string,
+  email:string,
+  registrationDate:string,
+  id?: string
+}
 
-const Register = () => {
+
+
+interface UserProps {
+  setUser: React.Dispatch<React.SetStateAction<Props | undefined>>
+}
+
+const Register:React.FC<UserProps> = ({setUser}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser]=useState(null);
+
   const  googleAuth = ()=>{
      window.open(
       `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
@@ -16,13 +29,25 @@ const Register = () => {
      )
   }
 
-    console.log(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`);
+    console.log(`${import.meta.env.VITE_REACT_APP_API_URL}/login`);
     
+    // const postData = (event:any):void =>{
+    //   event.preventDefault(); 
+      
+    //        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
+    //         setUser(data.data.user)
+
+
+          
+    //       });
+     
+    // }
+
     const postData = (event:any):void =>{
       event.preventDefault(); 
       
-           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
-            setUser(data.data.user)
+           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/login`,{email: email, password: password}).then(data =>{console.log(data)
+           
 
 
           
@@ -30,13 +55,26 @@ const Register = () => {
      
     }
 
-    useEffect(() => {
-      if (user) {
-        setTimeout(() => {
-          <Profile user={user}/>
-        }, 3000);
-      }
-    }, [user]);
+    const login = (event:any) => {
+      event.preventDefault(); 
+      axios({
+        method: "POST",
+        data: {
+          email: email,
+          password: password,
+        },
+        withCredentials: true,
+        url: "http://localhost:5000/login",
+      }).then((res) => console.log(res));
+    };
+
+    // useEffect(() => {
+    //   if (user) {
+    //     setTimeout(() => {
+    //       <Profile user={user}/>
+    //     }, 3000);
+    //   }
+    // }, [user]);
 
   
     return (
@@ -65,7 +103,7 @@ const Register = () => {
         
           </div>
   
-          <form className="form mt-3 md:mt-2" onSubmit={postData}> 
+          <form className="form mt-3 md:mt-2" onSubmit={login}> 
             <div className="flex flex-col justify-center items-center ">
               
               {/* <label htmlFor="email" 
@@ -76,6 +114,7 @@ const Register = () => {
                 type="text"
                 placeholder="Email"
                 required
+                name="email"
                 onChange={(e)=> setEmail(e.target.value)}
                 className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               />
@@ -88,6 +127,7 @@ const Register = () => {
               </label> */}
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 onChange={(e)=> setPassword(e.target.value)}
                 className="px-4 py-2 placeholder:text-slate-800  border  border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"

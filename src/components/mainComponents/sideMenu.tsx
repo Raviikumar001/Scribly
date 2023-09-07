@@ -19,7 +19,7 @@ const SideMenu: React.FC<Props> = ({toggelMenu,toggleseting, toggleValue}) => {
 
   // className='fixed  bg-gray-300 h-[95%] bg-opacity-30 w-[100%]' 
   return (
-    <div  onClick={toggleValue} className='fixed  bg-gray-300 h-[95%] bg-opacity-30 w-[100%]'  >
+    <div  onClick={toggleValue} className='fixed  bg-gray-300 h-[100%] bg-opacity-30 w-[100%]'  >
       <div className="bg-white absolute h-full w-[50%] md:w-[20%]">
         <div className='mt-12 border-2 border-gray-150 '>
             <div className='p-3 flex items-center '>

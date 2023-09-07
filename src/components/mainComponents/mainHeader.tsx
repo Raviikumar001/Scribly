@@ -29,6 +29,26 @@ function SettingsComponent(props: SettingsProps) {
     
   }
 
+
+    const logout = (): any => {
+          window.open(
+            `${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`,
+            "-self"
+          );
+     
+      };
+    {/* <h2 className="text-center text-gray-900">
+    </h2>
+
+    <p>{user.username}</p>
+    <p>{user.email}</p>
+
+    <button onClick={logout}>Logout</button> */}
+
+
+
+
+
   const toogleTools= ()=> {
     if(tools == tools)
     {
@@ -64,7 +84,11 @@ function SettingsComponent(props: SettingsProps) {
                 <p className="text-sm text-slate-500 md:ml-16">ACCOUNT</p>
                 <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">samcollins9899@gmail.com</p></div>
 
-                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3">Log Out</button></div>
+                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3" >
+                  <Link to={`${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`}>
+                  Log Out
+                  </Link>
+                  </button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
 

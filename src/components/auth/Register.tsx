@@ -1,8 +1,23 @@
 import axios from "axios";
-import { useState } from "react";
+import React ,{ useState } from "react";
 import { Link } from "react-router-dom";
+import useCreateDate from "../useCreateDate";
 
-const Register = () => {
+
+interface Props{
+  username: string,
+  email:string,
+  registrationDate:string,
+  id?: string
+}
+
+
+
+interface UserProps {
+  setUser: React.Dispatch<React.SetStateAction<Props | undefined>>
+}
+
+const Register:React.FC<UserProps> = ({setUser}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,16 +25,35 @@ const Register = () => {
   const googleAuth = () => {
     window.open(
       `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
-      "-self"
+     
     );
   };
     console.log(name, email, password)
-    const submitForm = (e:any):void =>{
-        e.preventDefault();
+    // const submitForm = (e:any):void =>{
+    //     e.preventDefault();
 
-        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{username :name,email: email, password: password});
-    }
+    //     axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,{username :name,email: email, password: password, registrationDate:useCreateDate()});
+    // }
+  //   const submitForm = (e:any):void =>{
+  //     e.preventDefault();
 
+  //     axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/register`,{username :name,email: email, password: password, registrationDate:useCreateDate()}).then(res => console.log(res));
+  // }
+
+  const submitForm = (e:any) => {
+    e.preventDefault();
+    axios({
+      method: "POST",
+      data: {
+        username: name,
+        email:email,
+        password: password,
+        registrationDate:useCreateDate()
+      },
+      withCredentials: true,
+      url: "http://localhost:5000/auth/register",
+    }).then((res) => console.log(res));
+  };
 
   return (
     <div>
@@ -34,11 +68,15 @@ const Register = () => {
           </h2>
 
           <button
-            onClick={googleAuth}
+            
             className=" btn_width  mt-3 border border-slate-400 rounded-md p-2 flex justify-center items-center md:mt-5 "
           >
             <img className="inline w-5" src="/img/google.png" alt="g-logo" />
-            <p className="inline pl-2 ">Continue with Google </p>
+            <p className="inline pl-2 ">
+            <Link to="http://localhost:5000/auth/google">
+              Continue with Google 
+              </Link>
+              </p>
           </button>
 
           <p className="mt-7 text-center text-xl">Or</p>
@@ -54,6 +92,7 @@ const Register = () => {
              onChange={(e)=> setName(e.target.value)}
               className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2 "
               placeholder="Name"
+              name="name"
             />
             {/* <label htmlFor="email" className="self-start block mb-2 left-margin md:self-auto md:mr-[18rem] md:ml-0 ">
               Email
@@ -63,6 +102,7 @@ const Register = () => {
               onChange={(e)=> setEmail(e.target.value)}
               className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               placeholder="Email"
+              name="email"
             />
 
             {/* <label
@@ -76,6 +116,7 @@ const Register = () => {
               onChange={(e)=> setPassword(e.target.value)}
               className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
               placeholder="Password"
+              name="password"
             />
 
             <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
