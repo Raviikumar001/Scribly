@@ -20,7 +20,8 @@ const Register:React.FC<UserProps> = ({setUser}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser]=useState(null);
+    const[message, setmessage] = useState("");
+    
 
   const  googleAuth = ()=>{
      window.open(
@@ -29,7 +30,7 @@ const Register:React.FC<UserProps> = ({setUser}) => {
      )
   }
 
-    console.log(`${import.meta.env.VITE_REACT_APP_API_URL}/login`);
+  
     
     // const postData = (event:any):void =>{
     //   event.preventDefault(); 
@@ -55,26 +56,84 @@ const Register:React.FC<UserProps> = ({setUser}) => {
      
     }
 
-    const login = (event:any) => {
-      event.preventDefault(); 
-      axios({
-        method: "POST",
-        data: {
-          email: email,
-          password: password,
-        },
-        withCredentials: true,
-        url: "http://localhost:5000/login",
-      }).then((res) => console.log(res));
-    };
+    // const login = (event:any) => {
+      
+    //   try {
+    //     event.preventDefault(); 
+    //     axios({
+    //       method: "POST",
+    //       data: {
+    //         email: email,
+    //         password: password,
+    //       },
+    //       withCredentials: true,
+    //       url: "http://localhost:5000/login",
+    //     })
 
-    // useEffect(() => {
-    //   if (user) {
-    //     setTimeout(() => {
-    //       <Profile user={user}/>
-    //     }, 3000);
+    //   } catch (error) {
+    //     console.log(error.response.data);
+    //   console.log(error.response.status);
+    //   console.log(error.response.headers);
     //   }
-    // }, [user]);
+     
+    // };
+    
+
+
+    const login = async (event:any)=>{
+
+      try {
+        event.preventDefault();
+
+        if(email =="" || password == '')
+        {
+          setmessage("Please enter all fields!")
+          return
+        }
+
+
+
+        const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
+         
+        const data = await axios.post(url, {email:email, password:password} ,{ withCredentials: true});
+        console.log(data);
+        console.log(data.data.message)
+        setmessage(data.data.message)
+      } catch (error) {
+        // console.log(error.response.data);
+        console.log(error.response.message);
+        console.log(error.response.data.message);
+        setmessage(error.response.data.message)
+        console.log(error.response.status);
+        console.log(error.response.headers);
+       
+      }
+    }
+
+    // const getUser = async () => {
+    //   try {
+    //     const url = `${
+    //       import.meta.env.VITE_REACT_APP_API_URL
+    //     }/auth/login/success`;
+    //     const data = await axios.get(url, { withCredentials: true });
+    //     console.log(data.status)
+    //     await setUser(data.data.user);
+    //   } catch (error) {
+    //     // console.log(error.response.data);
+    //     console.log(error.response.status);
+    //     console.log(error.response.headers);
+    //   }
+    // };
+  
+
+
+    useEffect(() => {
+      if (message) {
+        setTimeout(() => {
+          setmessage("")
+        }, 3000);
+      }
+    }, [message]);
 
   
     return (
@@ -99,7 +158,25 @@ const Register:React.FC<UserProps> = ({setUser}) => {
             </button>
   
             <p className="mt-7 text-center text-xl mb-10 md:mb-4">Or</p>
-         
+
+
+     
+
+{message && <div className="flex items-center p-4 w-[72%] md:w-[36%] mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+  <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+  </svg>
+
+  <div>
+    <span className="font-medium">{message}</span> 
+  </div>
+</div>}
+
+
+
+
+
+        
         
           </div>
   
@@ -111,7 +188,7 @@ const Register:React.FC<UserProps> = ({setUser}) => {
                 Email
               </label> */}
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
                 required
                 name="email"
@@ -135,7 +212,7 @@ const Register:React.FC<UserProps> = ({setUser}) => {
 
 
   
-              <button  className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
+              <button type="submit"  className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
                 <p >Login in </p>
               </button>
               <br />

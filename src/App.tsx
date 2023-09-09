@@ -24,10 +24,12 @@ function App() {
         import.meta.env.VITE_REACT_APP_API_URL
       }/auth/login/success`;
       const data = await axios.get(url, { withCredentials: true });
-      console.log(data.data.user)
+      console.log(data)
       await setUser(data.data.user);
     } catch (error) {
       console.log(error);
+      console.log(error.response.status);
+      console.log(error.response.headers);
     }
   };
 
@@ -52,8 +54,8 @@ function App() {
     getUser();
   }, []);
 
-  console.log(import.meta.env.VITE_REACT_APP_API_URL);
 
+  console.log(user)
   return (
     
       <Routes>
