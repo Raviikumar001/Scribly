@@ -1,26 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Profile from "../profile";
-
-interface Props{
-  username: string,
-  email:string,
-  registrationDate:string,
-  id?: string
-}
 
 
+import { useNavigate } from "react-router-dom";
 
-interface UserProps {
-  setUser: React.Dispatch<React.SetStateAction<Props | undefined>>
-}
-
-const Register:React.FC<UserProps> = ({setUser}) => {
+const Register:React.FC = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const[message, setmessage] = useState("");
+    let navigate = useNavigate();
     
 
   const  googleAuth = ()=>{
@@ -131,6 +121,9 @@ const Register:React.FC<UserProps> = ({setUser}) => {
       if (message) {
         setTimeout(() => {
           setmessage("")
+          if(message == 'Authentication successful'){
+            return navigate('/app')
+          }
         }, 3000);
       }
     }, [message]);
