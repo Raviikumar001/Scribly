@@ -77,8 +77,8 @@ const Profile:React.FC = () => {
   return (
 
     <>
- { user?
-      <MainApp /> : <Loading />}
+
+      <MainApp /> 
     </>
 
    
