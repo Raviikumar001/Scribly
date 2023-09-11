@@ -5,7 +5,7 @@ import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
 import { Link } from "react-router-dom";
 
-import {v4 as uuid} from 'uuid';
+
 
 interface SettingsProps{
   toggleSetting: ()=>void

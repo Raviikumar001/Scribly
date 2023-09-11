@@ -17,9 +17,10 @@ interface Note {
   const [note, setNote] = useState<Note[]>([]);
   const [activeNote, setActiveNote] = useState("");
   const [sidebar, setSideBar] = useState(true);
+  
   const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
-
-
+  
+    
     const getUserData =async()=>{
       
       try{
@@ -27,9 +28,11 @@ interface Note {
         const data =await axios.get(`${url}/api/get-note`, {withCredentials:true})
         console.log(data)
         setNote(data.data.notes)
+        
+       
       }catch(error)
       {
-
+        console.log(error)
       }
       
 
@@ -44,17 +47,23 @@ interface Note {
         { 
           "title": "Ravi kumar tommorw",
           "notes": "I love you ravi, and you know it",
-          "lastModified":"jlkjlj",
-          "dateCreated":"ljldkjfl"
-        }, { withCredentials: true }).catch((error)=> {
-        console.log(error.response.message);
-        console.log(error.response.data.message);
+          
+          "dateCreated":useCreateDate()
+        }, { withCredentials: true })
+      //   .catch((error)=> {
+      //   console.log(error.response.message);
+      //   console.log(error.response.data.message);
         
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      //   console.log(error.response.status);
+      //   console.log(error.response.headers);
 
-      }).then(data=> console.log(data))
-   
+      // })
+      .then(data=> {
+        if(data.status ==  200){
+          getUserData()
+        }
+      })
+      
 
   };
   useEffect(()=>{

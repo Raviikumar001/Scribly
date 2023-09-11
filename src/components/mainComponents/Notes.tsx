@@ -33,8 +33,7 @@ const TruncatedTextTitle: React.FC<TextProps> = ({ text, limit }) => {
 
 
 const NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
- console.log(notes)
-  
+
   
 
   return (
@@ -43,15 +42,15 @@ const NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
     <div >
       {notes.body ? (
         // <Link to={`/edit-note/${notes.id}`}>
-          <div className="border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300">
+          <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300 ${notes._id == activeNote &&"bg-slate-300"} `} onClick={() => setActiveNote(notes._id)}>
             <TruncatedTextTitle text={notes.title} limit={5} />
             {/* <h3 className='font-medium pt-1'>This is a new title</h3> */}
-            <TruncatedText text={notes.body} limit={7} />
+            <TruncatedText text={notes.body} limit={10} />
           </div>
        
       ) : (
         // <Link to={`create-note`}>
-          <div className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300  ${notes.id === activeNote &&' active:bg-slate-400' }`} onClick={() => setActiveNote(notes.id)}>
+          <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300  ${notes._id == activeNote &&'bg-red-400' }`} onClick={() => setActiveNote(notes._id)}>
             <h2 className="pt-3 pb-3 text-gray-700">New Note...</h2>
           </div>
         
