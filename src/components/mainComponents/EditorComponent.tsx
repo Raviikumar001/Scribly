@@ -17,12 +17,14 @@ interface Note {
 
 interface Props {
   notes: Note[]
+  setCounter:React.Dispatch<React.SetStateAction<number>>;
   activeNote?: Note | undefined;
   setActiveNote:React.Dispatch<React.SetStateAction<string>>;
   setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
-const EditorComponent: React.FC<Props> = ({ setSidebar, activeNote, notes, setActiveNote }) => {
+const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote, notes, setActiveNote }) => {
   const [info, setInfo] = useState(false);
   const [ischecked, setIschecked] = useState(false);
   const [showchecked, setShowChecked] = useState(false);
@@ -66,7 +68,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar, activeNote, notes, setAc
    if(activeNote){
     getActiveNote()
    }
-  },[activeNote])
+  },[activeNote?._id])
 
   
 
@@ -74,12 +76,14 @@ const EditorComponent: React.FC<Props> = ({ setSidebar, activeNote, notes, setAc
 
        setTitle(event.target.value)
        updateUserData()
+       setCounter((prev)=> prev +1)
   };
 
   const editBody =  (event:React.ChangeEvent<HTMLTextAreaElement>) => {
 
     setBody(event.target.value)
     updateUserData()
+    setCounter((prev)=> prev +1)
   };
 
   console.log(selectedNote, "selectedNote")

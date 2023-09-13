@@ -9,6 +9,7 @@ interface Notes{
   lastModified: Date;
   body: string;
   dateCreated: Date;
+  
 }
 
 interface Props{

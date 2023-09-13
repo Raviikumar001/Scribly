@@ -30,7 +30,7 @@ interface Note {
   const [note, setNote] = useState<Note[]>([]);
   const [activeNote, setActiveNote] = useState("");
   const [sidebar, setSideBar] = useState(true);
-
+  const [counter, setCounter] = useState(0)
   
   const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
   
@@ -82,8 +82,12 @@ interface Note {
 
 
   useEffect(()=>{
-    getUserData();
-  },[])
+    setTimeout(()=>{
+      getUserData();
+      console.log("initial",counter)
+
+    },1200)
+  },[counter])
 
   
   
@@ -106,7 +110,7 @@ interface Note {
       </div>}
       <div className={`hidden md:block md:h-screen ${sidebar? "md:col-span-3" : "md:col-span-4"}`}>
         <EditorComponent  
-        setSidebar={setSideBar} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
+        setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
       </div>
     </div>
   );

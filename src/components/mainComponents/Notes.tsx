@@ -33,7 +33,7 @@ const TruncatedTextTitle: React.FC<TextProps> = ({ text, limit }) => {
 
 
 
-const NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
+const   NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
 
   
 
