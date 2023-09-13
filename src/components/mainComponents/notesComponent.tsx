@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { SerchIcon, CrossArrow2 } from "../SvgFiles";
-
+import {v4 as uuid} from 'uuid'
 import NewNote from "./Notes";
 
 interface Notes{
-  id: string,
-  title: string,
-
+  _id: string;
+  title: string;
+  lastModified: Date;
   body: string;
-  dateCreated: string
+  dateCreated: Date;
 }
 
 interface Props{
@@ -53,7 +53,10 @@ const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) =
       </div>
      <div className="overflow-y-auto h-[35rem]">
       {noteItems.map((item) => (
-        <NewNote notes={item} key={item.id} activeNote={activeNote} setActiveNote={setActiveNote}  />
+         <div key={uuid()}>
+
+           <NewNote notes={item}  activeNote={activeNote} setActiveNote={setActiveNote}  />
+         </div>
       ))}
       </div>       
     </div>

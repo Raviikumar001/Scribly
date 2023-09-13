@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 interface SettingsProps{
   toggleSetting: ()=>void
+  user:PropsUser;
 }
 
 
@@ -82,12 +83,12 @@ function SettingsComponent(props: SettingsProps) {
         {accountInfo? <div className="pl-3 mb-5 mr-3 md:p-[10%]">
                 
                 <p className="text-sm text-slate-500 md:ml-16">ACCOUNT</p>
-                <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">samcollins9899@gmail.com</p></div>
+                <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">{props.user.email}</p></div>
 
                 <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3" >
                   <Link to={`${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`}>
                   Log Out
-                  </Link>
+                  </Link>nun 2nun 2nun 2nun 2nun 2nun 2nun 2nun 2
                   </button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
@@ -107,21 +108,31 @@ function SettingsComponent(props: SettingsProps) {
   );
 }
 interface NoteItem {
-  id: string,
-  title: string,
-
+  _id: string;
+  title: string;
+  lastModified: Date
   body: string;
-  dateCreated: string
+  dateCreated: Date;
 }
 
+interface PropsUser{
+  username: string,
+  email:string,
+  registrationDate:string,
+  id?: string
+}
+
+
+
 interface Props {
+  user:PropsUser;
   notes:NoteItem[]
   AddNote: ()=>void;
   activeNote:string,
   addActiveNote:React.Dispatch<React.SetStateAction<string>> 
 }
 
-function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
+function MainHeader({AddNote,notes, activeNote,addActiveNote, user}:Props) {
 
   const [menu, setMenu] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
@@ -161,7 +172,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote}:Props) {
       
       <NotesComponent  noteItems={notes} setActiveNote={addActiveNote} activeNote={activeNote} />
     </div >
-    {showSetting ?<SettingsComponent toggleSetting={toggleseting} /> : '' }   
+    {showSetting ?<SettingsComponent user={user} toggleSetting={toggleseting} /> : '' }   
     </div>
   );
 }

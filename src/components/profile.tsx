@@ -7,7 +7,7 @@ interface Props{
   registrationDate:string,
   id?: string
 }
-
+import { useNavigate } from "react-router-dom";
 
 
 function Loading (){
@@ -32,6 +32,9 @@ function Loading (){
 const Profile:React.FC = () => {
 
   const [user, setUser] = useState<undefined| Props >();
+  let [fetchedUser]= useState()
+
+  let navigate = useNavigate();
 
   const getUser = async () => {
     try {
@@ -40,6 +43,8 @@ const Profile:React.FC = () => {
       }/auth/login/success`;
       const data = await axios.get(url, { withCredentials: true });
       console.log(data)
+      
+      fetchedUser=data.data.user
       await setUser(data.data.user);
     } catch (error) {
       console.log(error);
@@ -66,7 +71,14 @@ const Profile:React.FC = () => {
 
 
   useEffect(() => {
-    getUser();
+   getUser();
+   console.log(fetchedUser, "outside usefeft")
+   setTimeout(()=>{
+    if(!fetchedUser){
+      console.log(fetchedUser,"in useeffect")
+      return navigate('/')
+     }
+   },1400)
   }, []);
 
 
@@ -77,8 +89,11 @@ const Profile:React.FC = () => {
   return (
 
     <>
-
-      <MainApp /> 
+      {
+        user ?
+        <MainApp user={user} />
+        :<Loading /> 
+      }
     </>
 
    

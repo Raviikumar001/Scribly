@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 interface NoteItem {
-  id: string,
+  _id: string,
   title: string,
 
   body: string;
-  dateCreated: string
+  lastModified: Date
+  dateCreated: Date
 }
 
 interface NoteProps {
@@ -40,17 +41,17 @@ const NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => {
     <div >
 
     <div >
-      {notes.body ? (
+      {notes.title ? (
         // <Link to={`/edit-note/${notes.id}`}>
           <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300 ${notes._id == activeNote &&"bg-slate-300"} `} onClick={() => setActiveNote(notes._id)}>
             <TruncatedTextTitle text={notes.title} limit={5} />
             {/* <h3 className='font-medium pt-1'>This is a new title</h3> */}
-            <TruncatedText text={notes.body} limit={10} />
+            <TruncatedText text={notes.body} limit={7} />
           </div>
        
       ) : (
         // <Link to={`create-note`}>
-          <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300  ${notes._id == activeNote &&'bg-red-400' }`} onClick={() => setActiveNote(notes._id)}>
+          <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300  ${notes._id == activeNote &&'bg-slate-300' }`} onClick={() => setActiveNote(notes._id)}>
             <h2 className="pt-3 pb-3 text-gray-700">New Note...</h2>
           </div>
         
