@@ -55,12 +55,17 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
   }
 
   const updateUserData =async ()=>{
-  setTimeout(()=>{
+  let timer:number;
+
+  timer = setTimeout(()=>{
     
     axios.patch(`${url}/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
     
-  },1500)
-    
+  },1000)
+  
+  return ()=>{
+    clearTimeout(timer)
+  }
   }
 
 
@@ -68,6 +73,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
    if(activeNote){
     getActiveNote()
    }
+
   },[activeNote?._id])
 
   

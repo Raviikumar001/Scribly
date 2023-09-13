@@ -82,11 +82,18 @@ interface Note {
 
 
   useEffect(()=>{
-    setTimeout(()=>{
+    let timeout:number;
+
+    timeout =setTimeout(()=>{
       getUserData();
       console.log("initial",counter)
+      
+    },1000)
 
-    },1200)
+    return () => {
+      clearTimeout(timeout); // Clear the timeout if it hasn't executed yet
+    };
+    
   },[counter])
 
   
@@ -95,7 +102,7 @@ interface Note {
     return note.find( (note)=> note._id == activeNote)
   }
   
-  
+  console.log(note)
 
   return (
     <div className="md:grid md:grid-cols-4">
