@@ -24,13 +24,7 @@ interface Note {
     user: PropsUser
   }
 
-  const obj={
-    _id :"ljljlk",
-    title: "ljlkj",
-    body: "ljlkjlj",
-    lastModified: "lkjklj",
-    dateCreated: "string"
-  }
+
 
   const MainApp: React.FC<Props> = ({user}) => {
 
