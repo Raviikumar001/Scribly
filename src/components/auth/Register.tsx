@@ -74,7 +74,7 @@ const Register= () => {
       setTimeout(() => {
         setmessage("")
         if(message == 'User created'){
-          return navigate('/app')
+          return navigate('/login')
         }
       }, 3000);
     }
