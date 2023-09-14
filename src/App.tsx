@@ -8,7 +8,7 @@ import { useEffect } from "react";
 function getUser() {
  
   axios
-    .get("https://scribly-note-server.onrender.com/", {
+    .get("https://scribly-note-server.onrender.com/api/get-notes", {
       withCredentials: true
     })
     .then((data) => console.log(data))
