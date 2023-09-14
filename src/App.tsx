@@ -6,14 +6,10 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function getUser() {
-  const url = `${import.meta.env.VITE_REACT_APP_API_URL}/auth/login/success`;
+ 
   axios
-    .get(url, {
-      withCredentials: true,
-      headers: {
-        "Access-Control-Allow-Origin": "https://scribly-note.vercel.app/",
-        "Content-Type": "application/json",
-      },
+    .get("https://scribly-note-server.onrender.com/auth/login/success", {
+      withCredentials: true
     })
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
