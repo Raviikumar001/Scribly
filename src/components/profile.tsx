@@ -41,7 +41,7 @@ const Profile:React.FC = () => {
       const url = `${
         import.meta.env.VITE_REACT_APP_API_URL
       }/auth/login/success`;
-      const data = await axios.get(url, { withCredentials: true });
+      const data = await axios.get(url);
       console.log(data)
       
       fetchedUser=data.data.user
