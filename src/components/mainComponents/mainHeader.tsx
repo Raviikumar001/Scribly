@@ -88,7 +88,7 @@ function SettingsComponent(props: SettingsProps) {
                 <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3" >
                   <Link to={`${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`}>
                   Log Out
-                  </Link>nun 2nun 2nun 2nun 2nun 2nun 2nun 2nun 2
+                  </Link>
                   </button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
@@ -110,9 +110,9 @@ function SettingsComponent(props: SettingsProps) {
 interface NoteItem {
   _id: string;
   title: string;
-  lastModified: Date
+  lastModified: string;
   body: string;
-  dateCreated: Date;
+  dateCreated: string;
 }
 
 interface PropsUser{

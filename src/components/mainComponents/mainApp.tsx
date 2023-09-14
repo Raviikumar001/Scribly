@@ -9,8 +9,8 @@ interface Note {
   _id: string;
   title: string;
   body: string;
-  lastModified: Date
-  dateCreated: Date;
+  lastModified: string;
+  dateCreated: string;
 }
 
 
@@ -88,7 +88,7 @@ interface Note {
       getUserData();
       console.log("initial",counter)
       
-    },1000)
+    },900)
 
     return () => {
       clearTimeout(timeout); // Clear the timeout if it hasn't executed yet
@@ -101,11 +101,10 @@ interface Note {
   const getActiveNote = ()=>{
     return note.find( (note)=> note._id == activeNote)
   }
-  
-  console.log(note)
-
+ console.log(note)
   return (
-    <div className="md:grid md:grid-cols-4">
+    <div>
+    <div className={"hidden md:grid md:grid-cols-4"}>
      {sidebar && <div className="md:col-span-1">
         <MainHeader
           AddNote={onAddNote}
@@ -119,6 +118,31 @@ interface Note {
         <EditorComponent  
         setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
       </div>
+    </div>
+
+
+    <div className="md:grid md:grid-cols-4">
+     {!activeNote && <div className="md:col-span-1">
+        <MainHeader
+          AddNote={onAddNote}
+          notes={note}
+          activeNote={activeNote}
+          user={user}
+          addActiveNote={setActiveNote}
+        />
+      </div>}
+      {/* <div className={`hidden md:block md:h-screen ${sidebar? "md:col-span-3" : "md:col-span-4" }`}>
+        <EditorComponent  
+        setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
+      </div> */}
+      <div className={activeNote ? "col-span-4":`col-span-3`}>
+        <EditorComponent  
+        setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
+      </div>
+
+
+    </div>
+
     </div>
   );
 };

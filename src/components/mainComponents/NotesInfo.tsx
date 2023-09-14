@@ -7,8 +7,8 @@ interface Note {
   _id: string;
   title: string;
   body: string;
-  lastModified: Date;
-  dateCreated: Date;
+  lastModified: string;
+  dateCreated: string;
 } 
 
 interface infoProps  {
@@ -23,7 +23,7 @@ interface infoProps  {
 
 
 const NotesInfo: React.FC<infoProps> = ({notes, updateNotes, activenote}) => {
-    const [user, setuser] = useState();
+    const [user, setuser] = useState<Note>();
     const changeValue = ()=>{
         updateNotes(notes);
     }
@@ -35,7 +35,7 @@ const NotesInfo: React.FC<infoProps> = ({notes, updateNotes, activenote}) => {
 
     const getDataOfNotes = async()=> {
       const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
-      const data = axios.get(`${url}/api/get-note/${activenote?._id}`, {withCredentials:true})
+     axios.get(`${url}/api/get-note/${activenote?._id}`, {withCredentials:true})
       .then( (res)=> {
         console.log(res.data.note)
         setuser(res.data.note)

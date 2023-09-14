@@ -5,12 +5,15 @@ import ActionComponent from "./ActionComponent";
 import { Link, } from "react-router-dom";
 import axios from "axios";
 import useCreateDate from "../useCreateDate";
+import ReactMarkdown from "react-markdown";
+
+
 interface Note {
   _id: string;
   title: string;
   body: string;
-  dateCreated: Date;
-  lastModified: Date;
+  dateCreated: string;
+  lastModified: string;
 }
 
 
@@ -20,7 +23,7 @@ interface Props {
   setCounter:React.Dispatch<React.SetStateAction<number>>;
   activeNote?: Note | undefined;
   setActiveNote:React.Dispatch<React.SetStateAction<string>>;
-  setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+  setSidebar?: React.Dispatch<React.SetStateAction<boolean>>;
 
 }
 
@@ -55,17 +58,15 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
   }
 
   const updateUserData =async ()=>{
-  let timer:number;
+ 
 
-  timer = setTimeout(()=>{
+   setTimeout(()=>{
     
     axios.patch(`${url}/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
     
-  },1000)
+  },1300)
   
-  return ()=>{
-    clearTimeout(timer)
-  }
+  
   }
 
 
@@ -92,14 +93,19 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
     setCounter((prev)=> prev +1)
   };
 
+  function headBackToApp()
+  {
+    setActiveNote("")
+  }
+
   console.log(selectedNote, "selectedNote")
   return (
     <div className="h-[100%] w-full">
       <div className={activeNote?"p-3 flex justify-between border-b-2 border-gray-150 md:border-2  ":"hidden" }  >
         <>
           <div className="md:hidden">
-            <Link to="/">
-              <BackArrow />
+            <Link to="/app">
+            <span onClick={headBackToApp}> <BackArrow  /> </span>  
             </Link>{" "}
           </div>
           <div
@@ -124,11 +130,29 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
       {/* Action component */}
       <div>
         {showchecked && (
-          <ActionComponent ischecked={ischecked} setShowChecked={setShowChecked} updateCheck={toggleCheckbox} activeNote={activeNote} setActiveNote={setActiveNote} />
+          <ActionComponent setCounter={setCounter} ischecked={ischecked} setShowChecked={setShowChecked} updateCheck={toggleCheckbox} activeNote={activeNote} setActiveNote={setActiveNote} />
         )}
       </div>
+      
+      
+    <div className={ischecked? " flex justify-center items-center h-screen md:border md:border-slate-300": "hidden"}>
+  
+    <div 
+    className="text-gray-700 text-lg w-[80%] ml-9 pl-5 pr-3 h-[87%] mt-4 border border-transparent  focus:outline-none"
 
-      {activeNote ? (
+    > 
+     <h2 className="mb-5">Markdown Preview</h2>
+      <ReactMarkdown>
+        {body} 
+      </ReactMarkdown >
+    </div>
+  
+
+
+      </div>  
+
+    <div className={ischecked ? "hidden": "block"}>
+    {activeNote ? (
         <form className="h-screen md:border md:border-slate-300">
           <input
             type="text"
@@ -150,8 +174,12 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
           Select or create a Note
         </div>
       )}
-
-
+    </div>
+    
+    
+      
+    
+       
 
 
 

@@ -6,9 +6,9 @@ import NewNote from "./Notes";
 interface Notes{
   _id: string;
   title: string;
-  lastModified: Date;
+  lastModified: string;
   body: string;
-  dateCreated: Date;
+  dateCreated: string;
 
 }
 
@@ -19,7 +19,7 @@ interface Props{
 }
 
 const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) => {
-  const [allPosts, setAllPosts] = useState<Notes[]>(noteItems);
+  // const [allPosts, setAllPosts] = useState<Notes[]>(noteItems);
   const [inputText, setInputText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState<number | undefined>();
   const [searchedResults, setSearchedResults] = useState<Notes[] | null>();
@@ -54,6 +54,7 @@ const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) =
         regex.test(item.body) 
     );
   };
+  
 
 console.log(searchedResults, "all posts")
   return (

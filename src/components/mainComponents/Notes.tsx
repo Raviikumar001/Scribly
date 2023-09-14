@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 interface NoteItem {
   _id: string,
   title: string,
 
   body: string;
-  lastModified: Date
-  dateCreated: Date
+  lastModified: string;
+  dateCreated: string;
 }
 
 interface NoteProps {
@@ -41,7 +41,7 @@ const   NewNote: React.FC<NoteProps> = ({ notes ,activeNote,setActiveNote }) => 
     <div >
 
     <div >
-      {notes.title ? (
+      {notes.title || notes.body ? (
         // <Link to={`/edit-note/${notes.id}`}>
           <div key={notes._id} className={`border border-r-0 border-slate-300 pl-3 md:border md:border-slate-300 ${notes._id == activeNote &&"bg-slate-300"} `} onClick={() => setActiveNote(notes._id)}>
             <TruncatedTextTitle text={notes.title} limit={5} />
