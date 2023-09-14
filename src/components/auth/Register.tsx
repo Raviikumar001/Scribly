@@ -58,10 +58,10 @@ const Register:React.FC = () => {
      
       console.log(res.data.message)
       setmessage(res.data.message)
-      if(res.status ==200)
-      {  console.log('in 200')
-        return redirect('/app')
-      }
+      // if(res.status ==200)
+      // {  console.log('in 200')
+      //   return redirect('/app')
+      // }
       
     })
   };
