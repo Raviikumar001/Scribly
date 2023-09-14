@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import MainApp from "./mainComponents/mainApp";
-// import axios from "axios";
+import axios from "axios";
 interface Props{
   username: string,
   email:string,
@@ -36,34 +36,32 @@ const Profile:React.FC = () => {
 
   let navigate = useNavigate();
 
-  // const getUser = async () => {
-  //   try {
-  //     const url = `${
-  //       import.meta.env.VITE_REACT_APP_API_URL
-  //     }/auth/login/success`;
-  //     const data = await axios.get(url);
-  //     console.log(data)
-      
-  //     fetchedUser=data.data.user
-  //     await setUser(data.data.user);
-  //   } catch (error) {
-  //     console.log(error);
-  //     // console.log(error.response.status);
-  //     // console.log(error.response.headers);
-  //   }
-  // };
-  const getUser = async ()=>{
+  const getUser = async () => {
     try {
-      const url = 'https://scribly-note-server.onrender.com/auth/login/success';
-
-     const data=  await fetch(url)
-     console.log(data)
+      const url = `${
+        import.meta.env.VITE_REACT_APP_API_URL
+      }/auth/login/success`;
+      const data = await axios.get(url);
+      console.log(data)
       
-     
-      
-    } catch(error){
-      console.log(error)
+      fetchedUser=data.data.user
+      await setUser(data.data.user);
+    } catch (error) {
+      console.log(error);
+      // console.log(error.response.status);
+      // console.log(error.response.headers);
     }
+  };
+  const getAnotherUserData = async()=>{
+
+    try {
+      
+      const data = fetch('https://scribly-note-server.onrender.com/auth/login/success')
+      console.log(data)
+    } catch (error) {
+      console.log(error, "error infetching");
+    }
+    
   }
 
 
@@ -86,6 +84,7 @@ const Profile:React.FC = () => {
 
   useEffect(() => {
    getUser();
+   getAnotherUserData()
    console.log(fetchedUser, "outside usefeft")
    setTimeout(()=>{
     if(!fetchedUser){
