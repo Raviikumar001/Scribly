@@ -12,16 +12,16 @@ function getUser(){
     'Access-Control-Allow-Origin': '*', 
     'Content-Type': 'application/json'
 }
-}).then(data => console.log(data))
+}).then(data => console.log(data)).catch(error=>console.log(error))
 
 }
 
-useEffect(()=>{
-  getUser()
-},[])
+
 
 function App() {
-
+  useEffect(()=>{
+    getUser()
+  },[])
   return (
     
       <Routes>
