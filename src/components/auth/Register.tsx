@@ -13,12 +13,12 @@ const Register:React.FC = () => {
   const[message, setmessage] = useState("");
   let navigate = useNavigate();
 
-  const googleAuth = () => {
-    window.open(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
+  // const googleAuth = () => {
+  //   window.open(
+  //     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
      
-    );
-  };
+  //   );
+  // };
     console.log(name, email, password)
     // const submitForm = (e:any):void =>{
     //     e.preventDefault();
@@ -49,7 +49,7 @@ const Register:React.FC = () => {
         registrationDate:useCreateDate()
       },
       withCredentials: true,
-      url: "http://localhost:5000/auth/register",
+      url: "https://scribly-note-server.onrender.com/auth/register",
     }).catch(error=> {
       console.log(error.response)
       setmessage(error.response.data.message)
@@ -98,7 +98,7 @@ const Register:React.FC = () => {
           >
             <img className="inline w-5" src="/img/google.png" alt="g-logo" />
             <p className="inline pl-2 ">
-            <Link to="http://localhost:5000/auth/google">
+            <Link to="https://scribly-note-server.onrender.com/auth/google">
               Continue with Google 
               </Link>
               </p>

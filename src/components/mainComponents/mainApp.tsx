@@ -57,7 +57,7 @@ interface Note {
   const onAddNote = async() => {
     
   
-      const data = await axios.post(`${url}/api/create-note`,
+      await axios.post(`${url}/api/create-note`,
         { 
           
           
@@ -76,7 +76,7 @@ interface Note {
           getUserData()
         }
       })
-      
+
 
   };
 

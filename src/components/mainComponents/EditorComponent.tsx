@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { BackArrow, Info, Action, Toggle } from "../SvgFiles";
 import NotesInfo from "./NotesInfo";
 import ActionComponent from "./ActionComponent";
@@ -21,9 +21,9 @@ interface Note {
 interface Props {
   notes: Note[]
   setCounter:React.Dispatch<React.SetStateAction<number>>;
-  activeNote?: Note | undefined;
+  activeNote: Note | undefined;
   setActiveNote:React.Dispatch<React.SetStateAction<string>>;
-  setSidebar?: React.Dispatch<React.SetStateAction<boolean>>;
+  setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 
 }
 
@@ -49,11 +49,11 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
 
   const getActiveNote = ()=> {
     let selectedNote= notes.filter(note =>  note._id == activeNote._id);
-    selectedNote =selectedNote[0]
+   let selected =selectedNote[0]
 
-    setSelectedNote(selectedNote)
-    setTitle(selectedNote.title)
-    setBody(selectedNote.body)
+    setSelectedNote(selected)
+    setTitle(selected.title)
+    setBody(selected.body)
     // console.log(selectedNote, "this is the selected note")
   }
 

@@ -48,8 +48,8 @@ const Profile:React.FC = () => {
       await setUser(data.data.user);
     } catch (error) {
       console.log(error);
-      console.log(error.response.status);
-      console.log(error.response.headers);
+      // console.log(error.response.status);
+      // console.log(error.response.headers);
     }
   };
 

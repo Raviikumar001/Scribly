@@ -13,12 +13,12 @@ const Register:React.FC = () => {
     let navigate = useNavigate();
     
 
-  const  googleAuth = ()=>{
-     window.open(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
+  // const  googleAuth = ()=>{
+  //    window.open(
+  //     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
      
-     )
-  }
+  //    )
+  // }
 
   
     
@@ -34,17 +34,17 @@ const Register:React.FC = () => {
      
     // }
 
-    const postData = (event:any):void =>{
-      event.preventDefault(); 
+    // const postData = (event:any):void =>{
+    //   event.preventDefault(); 
       
-           axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/login`,{email: email, password: password}).then(data =>{console.log(data)
+    //        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/login`,{email: email, password: password}).then(data =>{console.log(data)
            
 
 
           
-          });
+    //       });
      
-    }
+    // }
 
     // const login = (event:any) => {
       
@@ -86,16 +86,16 @@ const Register:React.FC = () => {
         const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
         const data = await axios.post(url, {email:email, password:password} ,{ withCredentials: true});
-        console.log(data);
-        console.log(data.data.message)
+        // console.log(data);
+        // console.log(data.data.message)
         setmessage(data.data.message)
       } catch (error) {
         // console.log(error.response.data);
-        console.log(error.response.message);
-        console.log(error.response.data.message);
-        setmessage(error.response.data.message)
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        // console.log(error.response.message);
+        // console.log(error.response.data.message);
+        // setmessage(error.response.data.message)
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
        
       }
     }
@@ -144,7 +144,7 @@ const Register:React.FC = () => {
             <button  className=" btn_width  mt-6 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
               <img className="inline w-5" src="/img/google.png" alt="g-logo" />
               <p className="inline pl-2 font-medium">
-                 <Link to="http://localhost:5000/auth/google">
+                 <Link to="https://scribly-note-server.onrender.com/auth/google">
                 Continue with Google
               </Link> 
                  </p>

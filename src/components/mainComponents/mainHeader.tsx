@@ -31,13 +31,13 @@ function SettingsComponent(props: SettingsProps) {
   }
 
 
-    const logout = (): any => {
-          window.open(
-            `${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`,
-            "-self"
-          );
+    // const logout = (): any => {
+    //       window.open(
+    //         `${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`,
+    //         "-self"
+    //       );
      
-      };
+    //   };
     {/* <h2 className="text-center text-gray-900">
     </h2>
 
