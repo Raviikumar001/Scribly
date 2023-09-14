@@ -85,7 +85,7 @@ const Register:React.FC = () => {
 
         const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
-        const data = await axios.post(url, {email:email, password:password} );
+        const data = await axios.post(url, {email:email, password:password} ,{ withCredentials: true});
         // console.log(data);
         // console.log(data.data.message)
         setmessage(data.data.message)

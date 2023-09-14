@@ -9,9 +9,9 @@ function getUser() {
   const url = `${import.meta.env.VITE_REACT_APP_API_URL}/auth/login/success`;
   axios
     .get(url, {
-      
+      withCredentials: true,
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://scribly-note.vercel.app/",
         "Content-Type": "application/json",
       },
     })
