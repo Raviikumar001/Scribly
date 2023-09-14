@@ -21,11 +21,13 @@ interface Note {
 interface Props {
   notes: Note[]
   setCounter:React.Dispatch<React.SetStateAction<number>>;
-  activeNote: Note | undefined;
+  activeNote?: Note ;
   setActiveNote:React.Dispatch<React.SetStateAction<string>>;
   setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 
 }
+
+
 
 const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote, notes, setActiveNote }) => {
   const [info, setInfo] = useState(false);
@@ -34,6 +36,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
   const [title, setTitle] = useState("");
   const [body ,setBody] = useState("");
   const [selectedNote, setSelectedNote] = useState<Note>();
+  
   const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
   const updateInfo = () => {
     setInfo((info) => !info);
@@ -48,12 +51,16 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
  
 
   const getActiveNote = ()=> {
-    let selectedNote= notes.filter(note =>  note._id == activeNote._id);
-   let selected =selectedNote[0]
+    if(activeNote?._id)
+    {let selectedNote= notes.filter(note =>  note._id == activeNote._id);
+      let selected =selectedNote[0]
+   
+       setSelectedNote(selected)
+       setTitle(selected.title)
+       setBody(selected.body)
 
-    setSelectedNote(selected)
-    setTitle(selected.title)
-    setBody(selected.body)
+    }
+    
     // console.log(selectedNote, "this is the selected note")
   }
 

@@ -6,7 +6,7 @@ import useCreateDate from "../useCreateDate";
 import { useNavigate } from "react-router-dom";
 
 
-const Register:React.FC = () => {
+const Register= () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +40,7 @@ const Register:React.FC = () => {
       return 
     }
 
-    axios({
+      axios({
       method: "POST",
       data: {
         username: name,
@@ -50,22 +50,24 @@ const Register:React.FC = () => {
       },
       withCredentials: true,
       url: "https://scribly-note-server.onrender.com/auth/register",
-    }).catch(error=> {
+    }).then((res) =>{ 
+
+      if(res.data)
+      {
+        console.log(res.data.message)
+        setmessage(res.data.message)
+ 
+      }
+       // if(res.status ==200)
+       // {  console.log('in 200')
+       //   return redirect('/app')
+       // }
+       
+     }).catch(error=> {
       console.log(error.response)
       setmessage(error.response.data.message)
-    }).then((res) =>{ 
-      
-     
-      console.log(res.data.message)
-      setmessage(res.data.message)
-      // if(res.status ==200)
-      // {  console.log('in 200')
-      //   return redirect('/app')
-      // }
-      
     })
-  };
-
+  }
 
   useEffect(() => {
     if (message) {
