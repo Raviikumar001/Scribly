@@ -49,7 +49,7 @@ const Register= () => {
         registrationDate:useCreateDate()
       },
       withCredentials:true,
-      url: "https://scribly-note-server.onrender.com/auth/register",
+      url: "http://13.233.212.250/auth/register",
     }).then((res) =>{ 
 
       if(res.data)
@@ -100,7 +100,7 @@ const Register= () => {
           >
             <img className="inline w-5" src="/img/google.png" alt="g-logo" />
             <p className="inline pl-2 ">
-            <Link to="https://scribly-note-server.onrender.com/auth/google">
+            <Link to="http://13.233.212.250/auth/google">
               Continue with Google 
               </Link>
               </p>

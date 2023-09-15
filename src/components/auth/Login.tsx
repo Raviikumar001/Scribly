@@ -69,7 +69,7 @@ const Register:React.FC = () => {
     // };
     
 
-
+    
     const login = async (event:any)=>{
 
       try {
@@ -144,7 +144,7 @@ const Register:React.FC = () => {
             <button  className=" btn_width  mt-6 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
               <img className="inline w-5" src="/img/google.png" alt="g-logo" />
               <p className="inline pl-2 font-medium">
-                 <Link to="https://scribly-note-server.onrender.com/auth/google">
+                 <Link to="http://13.233.212.250/auth/google">
                 Continue with Google
               </Link> 
                  </p>

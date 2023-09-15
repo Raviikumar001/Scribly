@@ -53,19 +53,25 @@ const Profile:React.FC = () => {
     }
   };
   const getAnotherUserData = async()=>{
-    const url = "https://scribly-note-server.onrender.com/auth/login/success";
-    try {
-      
-      const data = fetch(url, {
-        method: 'GET',
-        credentials: 'include'
-      })
-      console.log(data)
-    } catch (error) {
-      console.log(error, "error infetching");
-    }
     
+
+    fetch("http://13.233.212.250/auth/login/success", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+      credentials: "include",
+    })
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  });
+    
+     
   }
+
+
+ 
 
 
   //  const getUser = async () => {
@@ -88,10 +94,10 @@ const Profile:React.FC = () => {
   useEffect(() => {
    getUser();
     getAnotherUserData();
-   console.log(fetchedUser, "outside usefeft")
+   
    setTimeout(()=>{
     if(!fetchedUser){
-      console.log(fetchedUser,"in useeffect")
+     
       return navigate('/')
      }
    },1400)
