@@ -38,10 +38,10 @@ const Profile:React.FC = () => {
 
   const getUser = async () => {
     try {
-      const url = `${
-        import.meta.env.VITE_REACT_APP_API_URL
-      }/auth/login/success`;
-      const data = await axios.get(url, {withCredentials:true});
+      // const url = `${
+      //   import.meta.env.VITE_REACT_APP_API_URL
+      // }/auth/login/success`;
+      const data = await axios.get("http://13.233.212.250/auth/login/success", {withCredentials:true});
       console.log(data)
       
       fetchedUser=data.data.user
