@@ -52,17 +52,20 @@ const Profile:React.FC = () => {
       // console.log(error.response.headers);
     }
   };
-  // const getAnotherUserData = async()=>{
-
-  //   try {
+  const getAnotherUserData = async()=>{
+    const url = "https://scribly-note-server.onrender.com/auth/login/success";
+    try {
       
-  //     const data = fetch('https://scribly-note-server.onrender.com/auth/login/success')
-  //     console.log(data)
-  //   } catch (error) {
-  //     console.log(error, "error infetching");
-  //   }
+      const data = fetch(url, {
+        method: 'GET',
+        credentials: 'include'
+      })
+      console.log(data)
+    } catch (error) {
+      console.log(error, "error infetching");
+    }
     
-  // }
+  }
 
 
   //  const getUser = async () => {
@@ -84,7 +87,7 @@ const Profile:React.FC = () => {
 
   useEffect(() => {
    getUser();
-  
+    getAnotherUserData();
    console.log(fetchedUser, "outside usefeft")
    setTimeout(()=>{
     if(!fetchedUser){
