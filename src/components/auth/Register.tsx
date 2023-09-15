@@ -48,7 +48,7 @@ const Register= () => {
         password: password,
         registrationDate:useCreateDate()
       },
-     
+      withCredentials:true,
       url: "https://scribly-note-server.onrender.com/auth/register",
     }).then((res) =>{ 
 

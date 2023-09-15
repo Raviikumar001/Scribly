@@ -2,21 +2,21 @@ import { Login, Register } from "./components/pages";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./components/profile";
-import axios from "axios";
-import { useEffect } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
 
-function getUser() {
+// function getUser() {
  
-  axios
-    .get("https://scribly-note-server.onrender.com/api/get-notes")
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
-}
+//   axios
+//     .get("https://scribly-note-server.onrender.com/api/get-notes")
+//     .then((data) => console.log(data))
+//     .catch((error) => console.log(error));
+// }
 
 function App() {
-  useEffect(() => {
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
   return (
     <Routes>
       <Route path="/" element={<Home />} />

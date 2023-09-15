@@ -41,7 +41,7 @@ const Profile:React.FC = () => {
       const url = `${
         import.meta.env.VITE_REACT_APP_API_URL
       }/auth/login/success`;
-      const data = await axios.get(url);
+      const data = await axios.get(url, {withCredentials:true});
       console.log(data)
       
       fetchedUser=data.data.user
@@ -52,17 +52,17 @@ const Profile:React.FC = () => {
       // console.log(error.response.headers);
     }
   };
-  const getAnotherUserData = async()=>{
+  // const getAnotherUserData = async()=>{
 
-    try {
+  //   try {
       
-      const data = fetch('https://scribly-note-server.onrender.com/auth/login/success')
-      console.log(data)
-    } catch (error) {
-      console.log(error, "error infetching");
-    }
+  //     const data = fetch('https://scribly-note-server.onrender.com/auth/login/success')
+  //     console.log(data)
+  //   } catch (error) {
+  //     console.log(error, "error infetching");
+  //   }
     
-  }
+  // }
 
 
   //  const getUser = async () => {
@@ -84,7 +84,7 @@ const Profile:React.FC = () => {
 
   useEffect(() => {
    getUser();
-   getAnotherUserData()
+  
    console.log(fetchedUser, "outside usefeft")
    setTimeout(()=>{
     if(!fetchedUser){
