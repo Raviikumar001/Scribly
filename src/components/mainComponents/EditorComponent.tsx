@@ -69,7 +69,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
 
    setTimeout(()=>{
     
-    axios.patch(`/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
+    axios.patch(`/v1/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
     
   },1300)
   
