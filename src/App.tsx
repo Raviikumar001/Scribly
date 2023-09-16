@@ -2,8 +2,8 @@ import { Login, Register } from "./components/pages";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./components/profile";
-import axios from "axios";
-import { useEffect } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
 
 // function getUser() {
  
