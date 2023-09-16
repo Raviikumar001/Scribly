@@ -14,12 +14,12 @@ const Register:React.FC = () => {
     
 
   const  googleAuth = ()=>{
-    //  window.open(
-    //   `/v1/auth/google/callback/`,
-    //   "_self"
-    //  )
+     window.open(
+      `/v1/auth/google/callback/`,
+      
+     )
 
-     window.location.href="https://scribly-note.netlify.app/v1/auth/google"   
+    //  window.location.href="https://scribly-note.netlify.app/v1/auth/google"   
   }
 
   
