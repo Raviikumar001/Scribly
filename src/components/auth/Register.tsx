@@ -49,7 +49,7 @@ const Register= () => {
         registrationDate:useCreateDate()
       },
       withCredentials:true,
-      url: "http://13.233.212.250/auth/register",
+      url: "/v1/auth/register",
     }).then((res) =>{ 
 
       if(res.data)

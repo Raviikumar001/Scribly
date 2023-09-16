@@ -41,7 +41,7 @@ const Profile:React.FC = () => {
       // const url = `${
       //   import.meta.env.VITE_REACT_APP_API_URL
       // }/auth/login/success`;
-      const data = await axios.get("http://13.233.212.250/auth/login/success", {withCredentials:true});
+      const data = await axios.get("/v1/auth/login/success", {withCredentials:true});
       console.log(data)
       
       fetchedUser=data.data.user
@@ -52,23 +52,8 @@ const Profile:React.FC = () => {
       // console.log(error.response.headers);
     }
   };
-  const getAnotherUserData = async()=>{
-    
 
-    fetch("http://13.233.212.250/auth/login/success", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-      credentials: "include",
-    })
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-  });
-    
-     
-  }
+
 
 
  
@@ -93,7 +78,7 @@ const Profile:React.FC = () => {
 
   useEffect(() => {
    getUser();
-    getAnotherUserData();
+ 
    
    setTimeout(()=>{
     if(!fetchedUser){
