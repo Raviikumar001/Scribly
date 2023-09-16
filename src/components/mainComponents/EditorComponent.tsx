@@ -37,7 +37,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
   const [body ,setBody] = useState("");
   const [selectedNote, setSelectedNote] = useState<Note>();
   
-  const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
+  // const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
   const updateInfo = () => {
     setInfo((info) => !info);
   };
@@ -69,7 +69,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
 
    setTimeout(()=>{
     
-    axios.patch(`${url}/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
+    axios.patch(`/v1/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
     
   },1300)
   
