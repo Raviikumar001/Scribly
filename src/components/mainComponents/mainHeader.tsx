@@ -62,12 +62,11 @@ function SettingsComponent(props: SettingsProps) {
   }
 
   const handleLogout=async()=>{
-    await axios.get("/v1/auth/logout", {withCredentials:true}).then((data)=>{
-      console.log(data)
-      if(data.data.message=="successfully logged out"){
-        return navigate("/")
-      }
-    })
+    await axios.get("/v1/auth/logout", {withCredentials:true})
+    setTimeout(()=>{
+      return navigate('/')
+    },1200)
+    
    }
 
 

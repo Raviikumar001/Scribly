@@ -18,6 +18,8 @@ const Register:React.FC = () => {
       `/v1/auth/google/callback`,
       "_self"
      )
+
+   
   }
 
   
