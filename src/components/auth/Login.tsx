@@ -15,7 +15,7 @@ const Register:React.FC = () => {
 
   const  googleAuth = ()=>{
      window.open(
-      `/v1/auth/google/callback`,
+      `/v1/auth/google/callback/`,
       "_self"
      )
 
