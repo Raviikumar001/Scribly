@@ -5,7 +5,7 @@ import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
 // import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 
 
 interface SettingsProps{
@@ -18,6 +18,7 @@ interface SettingsProps{
 function SettingsComponent(props: SettingsProps) {
   const [accountInfo, setAccountInfo] = useState(true);
   const [tools, setTools] = useState(false);
+  let navigate = useNavigate();
   console.log(tools)
   const toggleaccount= ()=> {
    
@@ -60,9 +61,14 @@ function SettingsComponent(props: SettingsProps) {
     setTools(prev => !prev)
   }
 
-  const handleDelete=async()=>{
-   await axios.get("/v1/auth/logout")
-  }
+  const handleLogout=async()=>{
+    await axios.get("/v1/auth/logout", {withCredentials:true}).then((data)=>{
+      console.log(data)
+      if(data.data.message=="successfully logged out"){
+        return navigate("/")
+      }
+    })
+   }
 
 
   return (
@@ -91,7 +97,7 @@ function SettingsComponent(props: SettingsProps) {
                 <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">{props.user.email}</p></div>
 
                 <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4">
-                  <button className="p-3" onClick={handleDelete}>
+                  <button onClick={handleLogout} className="p-3" >
                   {/* <Link to={`https://scriblle.onrender.com/auth/logout`}> */}
                   Log Out
                   {/* </Link> */}

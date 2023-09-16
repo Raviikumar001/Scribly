@@ -13,12 +13,12 @@ const Register:React.FC = () => {
     let navigate = useNavigate();
     
 
-  // const  googleAuth = ()=>{
-  //    window.open(
-  //     `${import.meta.env.VITE_REACT_APP_API_URL}/auth/google/callback`,
-     
-  //    )
-  // }
+  const  googleAuth = ()=>{
+     window.open(
+      `/v1/auth/google/callback`,
+      "_self"
+     )
+  }
 
   
     
@@ -141,12 +141,12 @@ const Register:React.FC = () => {
               Welcome Back!
             </h2>
   
-            <button  className=" btn_width  mt-6 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
+            <button onClick={googleAuth} className=" btn_width  mt-6 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
               <img className="inline w-5" src="/img/google.png" alt="g-logo" />
               <p className="inline pl-2 font-medium">
-                 <Link to="https://scriblle.onrender.com/auth/google">
+                 {/* <Link to="https://scriblle.onrender.com/auth/google"> */}
                 Continue with Google
-              </Link> 
+              {/* </Link>  */}
                  </p>
             </button>
   
