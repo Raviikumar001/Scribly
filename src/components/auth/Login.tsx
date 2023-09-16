@@ -144,7 +144,7 @@ const Register:React.FC = () => {
             <button  className=" btn_width  mt-6 border border-slate-400 rounded-md p-2 flex justify-center items-center ">
               <img className="inline w-5" src="/img/google.png" alt="g-logo" />
               <p className="inline pl-2 font-medium">
-                 <Link to="http://13.233.212.250/auth/google">
+                 <Link to="https://scriblle.onrender.com/auth/google">
                 Continue with Google
               </Link> 
                  </p>
@@ -155,7 +155,7 @@ const Register:React.FC = () => {
 
      
 
-{message && <div className="flex items-center p-4 w-[72%] md:w-[36%] mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+{message && <div className="flex items-center justify-center p-4 w-[72%] md:w-[25%] mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
   <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
   </svg>

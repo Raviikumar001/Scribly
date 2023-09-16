@@ -122,7 +122,7 @@ interface Note {
     </div>
 
 
-    <div className="md:grid md:grid-cols-4">
+    <div className="grid grid-cols-4 md:hidden">
      {!activeNote && <div className="md:col-span-1">
         <MainHeader
           AddNote={onAddNote}
@@ -136,7 +136,7 @@ interface Note {
         <EditorComponent  
         setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
       </div> */}
-      <div className={activeNote ? "col-span-4":`col-span-3`}>
+      <div className={activeNote ? "col-span-4":"hidden"}>
         <EditorComponent  
         setSidebar={setSideBar} setCounter={setCounter} activeNote={getActiveNote()} notes={note} setActiveNote={setActiveNote} />
       </div>

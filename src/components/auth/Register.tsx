@@ -100,7 +100,7 @@ const Register= () => {
           >
             <img className="inline w-5" src="/img/google.png" alt="g-logo" />
             <p className="inline pl-2 ">
-            <Link to="http://13.233.212.250/auth/google">
+            <Link to="https://scriblle.onrender.com/auth/google">
               Continue with Google 
               </Link>
               </p>

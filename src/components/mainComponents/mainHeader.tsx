@@ -86,7 +86,7 @@ function SettingsComponent(props: SettingsProps) {
                 <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">{props.user.email}</p></div>
 
                 <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3" >
-                  <Link to={`${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`}>
+                  <Link to={`https://scriblle.onrender.com/auth/logout`}>
                   Log Out
                   </Link>
                   </button></div>
