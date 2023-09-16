@@ -3,7 +3,8 @@ import { Menu, WriteNote } from "../SvgFiles";
 import NotesComponent from "./notesComponent";
 import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 
@@ -59,6 +60,10 @@ function SettingsComponent(props: SettingsProps) {
     setTools(prev => !prev)
   }
 
+  const handleDelete=async()=>{
+   await axios.get("/v1/auth/logout")
+  }
+
 
   return (
     <div className="fixed top-0 left-0  h-screen bg-slate-400 bg-opacity-30 flex justify-center items-center w-[100%]">
@@ -85,10 +90,11 @@ function SettingsComponent(props: SettingsProps) {
                 <p className="text-sm text-slate-500 md:ml-16">ACCOUNT</p>
                 <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">{props.user.email}</p></div>
 
-                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4"><button className="p-3" >
-                  <Link to={`https://scriblle.onrender.com/auth/logout`}>
+                <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4">
+                  <button className="p-3" onClick={handleDelete}>
+                  {/* <Link to={`https://scriblle.onrender.com/auth/logout`}> */}
                   Log Out
-                  </Link>
+                  {/* </Link> */}
                   </button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>
@@ -97,6 +103,7 @@ function SettingsComponent(props: SettingsProps) {
               <div className="text-gray-500">Export Notes</div>
               <Down />
             </button>
+            *Feature will be available soon
           </div>  }
 
           

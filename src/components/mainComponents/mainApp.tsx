@@ -123,7 +123,7 @@ interface Note {
 
 
     <div className="grid grid-cols-4 md:hidden">
-     {!activeNote && <div className="md:col-span-1">
+     {!activeNote && <div className="md:col-span-4">
         <MainHeader
           AddNote={onAddNote}
           notes={note}
