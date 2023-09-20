@@ -5,7 +5,7 @@ interface Props{
   username: string,
   email:string,
   registrationDate:string,
-  id?: string
+  _id?: string
 }
 import { useNavigate } from "react-router-dom";
 
@@ -65,22 +65,6 @@ const Profile:React.FC = () => {
 
  
 
-
-  //  const getUser = async () => {
-  //   try {
-  //     const url = `${
-  //       import.meta.env.VITE_REACT_APP_API_URL
-  //     }/user`;
-  //     const data = await axios.get(url, { withCredentials: true });
-  //     console.log(data.data )
-  //     await setUser(data.data);
-     
-
-      
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
 
   useEffect(() => {

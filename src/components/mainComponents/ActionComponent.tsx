@@ -27,7 +27,8 @@ const ActionComponent:React.FC<ActionProps> = ({ischecked,updateCheck,setCounter
     }
 
     const DeleteNote= async()=>{
-      const data= await axios.delete(`/v1/api/delete-note/${activeNote?._id}`, {withCredentials:true})
+      const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
+      const data= await axios.delete(`${url}/api/delete-note/${activeNote?._id}`, {withCredentials:true})
       console.log(data)
       if(data.status =200)
       {

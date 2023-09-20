@@ -18,7 +18,7 @@ interface Note {
       username: string,
       email:string,
       registrationDate:string,
-      id?: string
+      _id?: string
     }
   interface Props{
     user: PropsUser
@@ -33,14 +33,14 @@ interface Note {
   const [sidebar, setSideBar] = useState(true);
   const [counter, setCounter] = useState(0)
   
-  // const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
+  const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
   
     
     const getUserData =async()=>{
       
       try{
         
-        const data =await axios.get(`/v1/api/get-notes`, {withCredentials:true})
+        const data =await axios.get(`${url}/api/get-notes/${user._id}`, {withCredentials:true})
        
         setNote(data.data.notes)
         
@@ -57,8 +57,8 @@ interface Note {
 
   const onAddNote = async() => {
     
-  
-      await axios.post(`/v1/api/create-note`,
+    
+      await axios.post(`${url}/api/create-note/${user._id}`,
         { 
           
           
@@ -97,7 +97,7 @@ interface Note {
     
   },[counter])
 
-  
+  console.log(user)
   
   const getActiveNote = ()=>{
     return note.find( (note)=> note._id == activeNote)

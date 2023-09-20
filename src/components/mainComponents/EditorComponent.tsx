@@ -68,10 +68,10 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
  
 
    setTimeout(()=>{
+    const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
+    axios.patch(`${url}/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
     
-    axios.patch(`/v1/api/update-note/${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()}, {withCredentials:true})
-    
-  },1300)
+  },200)
   
   
   }
