@@ -27,7 +27,7 @@ const Register:React.FC = () => {
 
     const  googleAuth = ()=>{
       window.open(
-       `http://localhost:5000/auth/google/callback`,
+       `https://test-auth-7lhs.onrender.com/auth/google/callback`,
        "_self"
       )
     }

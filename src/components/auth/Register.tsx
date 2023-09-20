@@ -13,7 +13,7 @@ const Register = () => {
   let navigate = useNavigate();
 
   const googleAuth = () => {
-    window.open(`http://localhost:5000/auth/google/callback`, "_self");
+    window.open(`https://test-auth-7lhs.onrender.com/auth/google/callback`, "_self");
   };
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
