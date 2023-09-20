@@ -3,8 +3,8 @@ import { Menu, WriteNote } from "../SvgFiles";
 import NotesComponent from "./notesComponent";
 import SideMenu from "./sideMenu";
 import { CrossArrow3, Down } from "../SvgFiles";
-// import { Link } from "react-router-dom";
-import axios from "axios";
+
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,20 +33,15 @@ function SettingsComponent(props: SettingsProps) {
   }
 
 
-    // const logout = (): any => {
-    //       window.open(
-    //         `${import.meta.env.VITE_REACT_APP_API_URL}/auth/logout`,
-    //         "-self"
-    //       );
-     
-    //   };
-    {/* <h2 className="text-center text-gray-900">
-    </h2>
+  const removeUserToLocalStorage = ()=>{
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    setTimeout(()=>{
+      return navigate('/')
+    },1200)
 
-    <p>{user.username}</p>
-    <p>{user.email}</p>
-
-    <button onClick={logout}>Logout</button> */}
+   
+ }
 
 
 
@@ -61,13 +56,7 @@ function SettingsComponent(props: SettingsProps) {
     setTools(prev => !prev)
   }
 
-  const handleLogout=async()=>{
-    await axios.get("/v1/auth/logout", {withCredentials:true})
-    setTimeout(()=>{
-      return navigate('/')
-    },1200)
-    
-   }
+ 
 
 
   return (
@@ -96,10 +85,10 @@ function SettingsComponent(props: SettingsProps) {
                 <div className="border border-gray-300 md:mt-3 md:m-16 md:mb-4"><p className="p-3 text-center text-gray-800 mt-1 md:">{props.user.email}</p></div>
 
                 <div className="mt-6 border border-gray-300 bg-blue-700 text-white text-center md:m-16 md:mb-4">
-                  <button onClick={handleLogout} className="p-3" >
-                  {/* <Link to={`https://scriblle.onrender.com/auth/logout`}> */}
+                  <button onClick={removeUserToLocalStorage} className="p-3" >
+                
                   Log Out
-                  {/* </Link> */}
+                
                   </button></div>
                 </div> :  <div className="ml-6 mb-9 mr-1 md:ml-9 ">
             <p className="text-sm font-semibold text-slate-500 md:ml-16 ">TOOLS</p>

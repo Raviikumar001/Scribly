@@ -1,9 +1,21 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 
 
 import { useNavigate } from "react-router-dom";
+
+interface User{
+  username: string,
+  email:string,
+  registrationDate:string,
+  _id: string
+}
+
+export const addUserToLocalStorage = (user:User,token:string)=>{
+  localStorage.setItem('user',JSON.stringify(user))
+  localStorage.setItem('token',JSON.stringify(token))
+}
 
 const Register:React.FC = () => {
 
@@ -13,69 +25,24 @@ const Register:React.FC = () => {
     let navigate = useNavigate();
     
 
-  const  googleAuth = ()=>{
-     window.open(
-      `/v1/auth/google/callback/`,
-      
-     )
+    const  googleAuth = ()=>{
+      window.open(
+       `http://localhost:5000/auth/google/callback`,
+       "_self"
+      )
+    }
 
-    //  window.location.href="https://scribly-note.netlify.app/v1/auth/google"   
-  }
 
   
-    
-    // const postData = (event:any):void =>{
-    //   event.preventDefault(); 
-      
-    //        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`,{email: email, password: password}).then(data =>{console.log(data.data.user.username)
-    //         setUser(data.data.user)
-
-
-          
-    //       });
-     
-    // }
-
-    // const postData = (event:any):void =>{
-    //   event.preventDefault(); 
-      
-    //        axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/login`,{email: email, password: password}).then(data =>{console.log(data)
-           
-
-
-          
-    //       });
-     
-    // }
-
-    // const login = (event:any) => {
-      
-    //   try {
-    //     event.preventDefault(); 
-    //     axios({
-    //       method: "POST",
-    //       data: {
-    //         email: email,
-    //         password: password,
-    //       },
-    //       withCredentials: true,
-    //       url: "http://localhost:5000/login",
-    //     })
-
-    //   } catch (error) {
-    //     console.log(error.response.data);
-    //   console.log(error.response.status);
-    //   console.log(error.response.headers);
-    //   }
-     
-    // };
+  
     
 
-    
-    const login = async (event:any)=>{
 
+    
+    const login = async (event:React.FormEvent<HTMLFormElement>)=>{
+      
+      event.preventDefault();
       try {
-        event.preventDefault();
 
         if(email =="" || password == '')
         {
@@ -87,35 +54,28 @@ const Register:React.FC = () => {
 
         // const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
-        const data = await axios.post("/v1/login", {email:email, password:password} ,{withCredentials:true});
-        // console.log(data);
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`, {email:email, password:password} ,{withCredentials:true});
+        console.log(response);
+
         // console.log(data.data.message)
-        setmessage(data.data.message)
-      } catch (error) {
+        setmessage(response.data.message)
+        addUserToLocalStorage(response.data.user,response.data.token)
+      }
+      
+      
+      
+      catch (error:any) {
         // console.log(error.response.data);
         // console.log(error.response.message);
-        // console.log(error.response.data.message);
-        // setmessage(error.response.data.message)
+        console.log(error.response.data.message);
+        setmessage(error.response.data.message)
         // console.log(error.response.status);
         // console.log(error.response.headers);
        
       }
     }
 
-    // const getUser = async () => {
-    //   try {
-    //     const url = `${
-    //       import.meta.env.VITE_REACT_APP_API_URL
-    //     }/auth/login/success`;
-    //     const data = await axios.get(url, { withCredentials: true });
-    //     console.log(data.status)
-    //     await setUser(data.data.user);
-    //   } catch (error) {
-    //     // console.log(error.response.data);
-    //     console.log(error.response.status);
-    //     console.log(error.response.headers);
-    //   }
-    // };
+  
   
 
 
@@ -126,7 +86,7 @@ const Register:React.FC = () => {
           if(message == 'Authentication successful'){
             return navigate('/app')
           }
-        }, 3000);
+        }, 2000);
       }
     }, [message]);
 

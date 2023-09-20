@@ -1,6 +1,6 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useRef} from "react";
 import MainApp from "./mainComponents/mainApp";
-import axios from "axios";
+
 interface Props{
   username: string,
   email:string,
@@ -32,20 +32,27 @@ function Loading (){
 const Profile:React.FC = () => {
 
   const [user, setUser] = useState<undefined| Props >();
-  let [fetchedUser]= useState()
+  const [token, settoken] = useState<string|null>();
+  const tokenRef = useRef<string| null>();
 
   let navigate = useNavigate();
 
   const getUser = async () => {
     try {
-      // const url = `${
-      //   import.meta.env.VITE_REACT_APP_API_URL
-      // }/auth/login/success`;
-      const data = await axios.get("/v1/auth/login/success", {withCredentials:true});
-      console.log(data)
+      const token = await localStorage.getItem('token');
+      const user = await localStorage.getItem('user');
+      tokenRef.current=token;
+      if(user)
+      {
+       await setUser(JSON.parse(user))
+
+      }
+      if(token){
+        await settoken(token)
+        tokenRef.current = token;
+      }
       
-      fetchedUser=data.data.user
-      await setUser(data.data.user);
+      
     } catch (error) {
       console.log(error);
       // console.log(error.response.status);
@@ -77,19 +84,53 @@ const Profile:React.FC = () => {
 
 
   useEffect(() => {
+
+    (function () {
+      const currentUrl = window.location.href;
+const url = new URL(currentUrl);
+const token = url.searchParams.get('token');
+const user = url.searchParams.get('user'); // This should contain the user JSON string
+
+if (token) {
+  // console.log('Token:', token);
+
+  if (user) {
+    // Decode the user JSON string into a JavaScript object
+    const userData = JSON.parse(decodeURIComponent(user));
+    console.log('User:', userData);
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
+  }
+
+ 
+
+  // Remove the token and user parameters from the URL
+  url.searchParams.delete('token');
+  url.searchParams.delete('user');
+  url.pathname = '/app';
+  window.history.replaceState({}, '', url.toString());
+}
+})();
+
+
+
+
    getUser();
  
    
-   setTimeout(()=>{
-    if(!fetchedUser){
+  setTimeout(()=>{
+      console.log(tokenRef.current, "in current")
+    if(!tokenRef.current){
      
       return navigate('/')
      }
-   },1400)
+   },2000)
+
+ 
   }, []);
 
 
-  console.log(user)
+  console.log(token, user)
 
 
 

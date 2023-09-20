@@ -20,7 +20,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/app" element={<Profile />} />
+      <Route path="/app/:id?" element={<Profile />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

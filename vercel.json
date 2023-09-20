@@ -1,9 +1,0 @@
-
-{
-  "rewrites": [
-    {
-      "source": "/v1",
-      "destination": "https://scriblle.onrender.com"
-    }
-  ]
-}
