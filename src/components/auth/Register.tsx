@@ -37,7 +37,7 @@ const Register = () => {
     })
       .then((res) => {
         if (res.data) {
-          console.log(res.data.message);
+     
           setmessage(res.data.message);
           addUserToLocalStorage(res.data.user, res.data.token);
         }
@@ -47,7 +47,7 @@ const Register = () => {
         // }
       })
       .catch((error) => {
-        console.log(error.response);
+      
         setmessage(error.response.data.message);
       });
   };

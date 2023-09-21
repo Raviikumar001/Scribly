@@ -19,7 +19,7 @@ function SettingsComponent(props: SettingsProps) {
   const [accountInfo, setAccountInfo] = useState(true);
   const [tools, setTools] = useState(false);
   let navigate = useNavigate();
-  console.log(tools)
+
   const toggleaccount= ()=> {
    
       setAccountInfo(prev => {
@@ -151,7 +151,7 @@ function MainHeader({AddNote,notes, activeNote,addActiveNote, user}:Props) {
   };
 
   const toggleseting = () => {
-    console.log(showSetting)
+ 
     setShowSetting((prev) => !prev);
   };
 

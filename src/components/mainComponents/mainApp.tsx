@@ -47,7 +47,7 @@ interface Note {
        
       }catch(error)
       {
-        console.log(error)
+       
       }
       
 
@@ -87,7 +87,7 @@ interface Note {
 
     timeout =setTimeout(()=>{
       getUserData();
-      console.log("initial",counter)
+    
       
     },900)
 
@@ -97,12 +97,12 @@ interface Note {
     
   },[counter])
 
-  console.log(user)
+ 
   
   const getActiveNote = ()=>{
     return note.find( (note)=> note._id == activeNote)
   }
- console.log(note)
+
   return (
     <div>
     <div className={"hidden md:grid md:grid-cols-4"}>

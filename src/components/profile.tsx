@@ -54,9 +54,7 @@ const Profile:React.FC = () => {
       
       
     } catch (error) {
-      console.log(error);
-      // console.log(error.response.status);
-      // console.log(error.response.headers);
+     
     }
   };
 
@@ -81,7 +79,7 @@ if (token) {
   if (user) {
     // Decode the user JSON string into a JavaScript object
     const userData = JSON.parse(decodeURIComponent(user));
-    console.log('User:', userData);
+   
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(userData));
   }
@@ -103,7 +101,7 @@ if (token) {
  
    
   setTimeout(()=>{
-      console.log(tokenRef.current, "in current")
+ 
     if(!tokenRef.current){
      
       return navigate('/')
@@ -114,7 +112,7 @@ if (token) {
   }, []);
 
 
-  console.log(token, user)
+
 
 
 

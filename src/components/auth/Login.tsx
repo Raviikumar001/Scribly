@@ -55,7 +55,7 @@ const Register:React.FC = () => {
         // const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`, {email:email, password:password} ,{withCredentials:true});
-        console.log(response);
+       
 
         // console.log(data.data.message)
         setmessage(response.data.message)
@@ -67,7 +67,7 @@ const Register:React.FC = () => {
       catch (error:any) {
         // console.log(error.response.data);
         // console.log(error.response.message);
-        console.log(error.response.data.message);
+      
         setmessage(error.response.data.message)
         // console.log(error.response.status);
         // console.log(error.response.headers);
