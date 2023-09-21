@@ -27,7 +27,7 @@ const Register:React.FC = () => {
 
     const  googleAuth = ()=>{
       window.open(
-       `https://test-auth-7lhs.onrender.com/auth/google/callback`,
+       `https://scribly-note.up.railway.app/auth/google/callback`,
        "_self"
       )
     }
