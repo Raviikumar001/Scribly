@@ -57,7 +57,7 @@ const Profile:React.FC = () => {
      
     }
   };
-
+  console.log(token,+Math.random());
 
 
 
