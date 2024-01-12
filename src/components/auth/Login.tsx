@@ -27,7 +27,7 @@ const Register:React.FC = () => {
 
     const  googleAuth = ()=>{
       window.open(
-       `https://scribly-note.up.railway.app/auth/google/callback`,
+       `https://scribly-note-server-production.up.railway.app/auth/google/callback`,
        "_self"
       )
     }
@@ -35,6 +35,7 @@ const Register:React.FC = () => {
 
   
   
+    
     
 
 

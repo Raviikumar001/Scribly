@@ -13,7 +13,7 @@ const Register = () => {
   let navigate = useNavigate();
 
   const googleAuth = () => {
-    window.open(`https://scribly-note.up.railway.app/auth/google/callback`, "_self");
+    window.open(`https://scribly-note-server-production.up.railway.app/auth/google/callback`, "_self");
   };
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
