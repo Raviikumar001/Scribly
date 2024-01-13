@@ -27,7 +27,7 @@ const Register:React.FC = () => {
 
     const  googleAuth = ()=>{
       window.open(
-       `https://scribly-note-server-production.up.railway.app/auth/google/callback`,
+       `https://scribly-note-server-production.up.railway.app/v1/auth/google/callback`,
        "_self"
       )
     }
@@ -55,12 +55,16 @@ const Register:React.FC = () => {
 
         // const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
-        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/login`, {email:email, password:password} ,{withCredentials:true});
-       
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/login`, {email:email, password:password});
+        console.log(response);
 
         // console.log(data.data.message)
+        if(response.data)
+        {
+          console.log(response.data.message)
         setmessage(response.data.message)
         addUserToLocalStorage(response.data.user,response.data.token)
+        }
       }
       
       
@@ -84,7 +88,7 @@ const Register:React.FC = () => {
       if (message) {
         setTimeout(() => {
           setmessage("")
-          if(message == 'Authentication successful'){
+          if(message == 'User Authenticated'){
             return navigate('/app')
           }
         }, 2000);

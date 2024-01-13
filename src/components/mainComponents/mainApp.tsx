@@ -40,8 +40,8 @@ interface Note {
       
       try{
         
-        const data =await axios.get(`${url}/api/get-notes/${user._id}`, {withCredentials:true})
-       
+        const data =await axios.get(`${url}/v1/api/get-notes?id=${user._id}`)
+        console.log(data);
         setNote(data.data.notes)
         
        
@@ -58,21 +58,14 @@ interface Note {
   const onAddNote = async() => {
     
     
-      await axios.post(`${url}/api/create-note/${user._id}`,
+      await axios.post(`${url}/v1/api/create-note?id=${user._id}`,
         { 
           
           
           "dateCreated":useCreateDate()
-        }, { withCredentials: true })
-      //   .catch((error)=> {
-      //   console.log(error.response.message);
-      //   console.log(error.response.data.message);
-        
-      //   console.log(error.response.status);
-      //   console.log(error.response.headers);
-
-      // })
+        })
       .then(data=> {
+       
         if(data.status ==  200){
           getUserData()
         }

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useCreateDate from "../useCreateDate";
-import { addUserToLocalStorage } from "./Login";
+
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -12,51 +12,45 @@ const Register = () => {
   const [message, setmessage] = useState("");
   let navigate = useNavigate();
 
-  const googleAuth = () => {
-    window.open(`https://scribly-note-server-production.up.railway.app/auth/google/callback`, "_self");
-  };
 
-  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  
+
+  const  googleAuth = ()=>{
+    window.open(
+     `https://scribly-note-server-production.up.railway.app/v1/auth/google/callback`,
+     "_self"
+    )
+  }
+
+
+  const submitForm =async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (name == "" || email == "" || password == "") {
       setmessage("Please enter all fields!");
       return;
     }
-
-    axios({
-      method: "POST",
-      data: {
-        username: name,
+    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/register`,{
+      name: name,
         email: email,
         password: password,
         registrationDate: useCreateDate(),
-      },
-      withCredentials: true,
-      url: `${import.meta.env.VITE_REACT_APP_API_URL}/auth/register`,
-    })
-      .then((res) => {
-        if (res.data) {
-     
-          setmessage(res.data.message);
-          addUserToLocalStorage(res.data.user, res.data.token);
-        }
-        // if(res.status ==200)
-        // {  console.log('in 200')
-        //   return redirect('/app')
-        // }
-      })
-      .catch((error) => {
+    },
+)
+  console.log(response)
+    if(response.data)
+    {
+      setmessage(response.data.message)
+    }
+
       
-        setmessage(error.response.data.message);
-      });
   };
 
   useEffect(() => {
     if (message) {
       setTimeout(() => {
         setmessage("");
-        if (message == "User created") {
+        if (message == "User Created") {
           return navigate("/login");
         }
       }, 3000);
