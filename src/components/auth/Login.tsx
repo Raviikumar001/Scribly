@@ -56,12 +56,12 @@ const Register:React.FC = () => {
         // const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
          
         const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/login`, {email:email, password:password});
-        console.log(response);
+        // console.log(response);
 
         // console.log(data.data.message)
         if(response.data)
         {
-          console.log(response.data.message)
+          // console.log(response.data.message)
         setmessage(response.data.message)
         addUserToLocalStorage(response.data.user,response.data.token)
         }

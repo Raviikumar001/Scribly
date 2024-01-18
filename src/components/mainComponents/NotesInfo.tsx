@@ -37,7 +37,7 @@ const NotesInfo: React.FC<infoProps> = ({notes, updateNotes, activenote}) => {
       const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
      axios.get(`${url}/v1/api/get-note?id=${activenote?._id}`)
       .then( (res)=> {
-        console.log(res);
+        // console.log(res);
         setuser(res.data.note)
          
       })

@@ -41,7 +41,7 @@ interface Note {
       try{
         
         const data =await axios.get(`${url}/v1/api/get-notes?id=${user._id}`)
-        console.log(data);
+        // console.log(data);
         setNote(data.data.notes)
         
        

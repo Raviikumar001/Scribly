@@ -37,7 +37,7 @@ const Register = () => {
         registrationDate: useCreateDate(),
     },
 )
-  console.log(response)
+  // console.log(response)
     if(response.data)
     {
       setmessage(response.data.message)

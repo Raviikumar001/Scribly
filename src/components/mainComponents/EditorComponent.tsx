@@ -71,7 +71,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
     const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
     axios.patch(`${url}/v1/api/update-note?id=${activeNote?._id}`,{title:title,body:body,lastModified:useCreateDate()})
     .then(res => {
-      console.log(res);
+      // console.log(res);
     })
     
   },200)
@@ -108,7 +108,7 @@ const EditorComponent: React.FC<Props> = ({ setSidebar,setCounter,   activeNote,
     setActiveNote("")
   }
 
-  console.log(selectedNote, "selectedNote")
+  // console.log(selectedNote, "selectedNote")
   return (
     <div className="h-[100%] w-full">
       <div className={activeNote?"p-3 flex justify-between border-b-2 border-gray-150 md:border-2  ":"hidden" }  >

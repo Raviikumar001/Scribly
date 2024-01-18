@@ -36,7 +36,7 @@ const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) =
   const handleSearchChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(searchTimeout);
     setInputText(e.target.value);
-    console.log(e.target.value)
+    // console.log(e.target.value)
 
     // debounce method
     setSearchTimeout(
@@ -56,7 +56,7 @@ const NotesComponent: React.FC<Props> = ({noteItems,activeNote,setActiveNote}) =
   };
   
 
-console.log(searchedResults, "all posts")
+// console.log(searchedResults, "all posts")
   return (
     <div>
       <div className="flex justify-center">

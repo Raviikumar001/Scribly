@@ -29,7 +29,7 @@ const ActionComponent:React.FC<ActionProps> = ({ischecked,updateCheck,setCounter
     const DeleteNote= async()=>{
       const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
       const data= await axios.delete(`${url}/v1/api/delete-note?id=${activeNote?._id}`)
-      console.log(data);
+      // console.log(data);
       if(data.status =200)
       {
         setActiveNote("");
