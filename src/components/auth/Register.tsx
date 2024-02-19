@@ -32,6 +32,10 @@ const Register = () => {
       if (name == "" || email == "" || password == "") {
         setmessage("Please enter all fields!");
         return;
+      }else if(name.length <3)
+      {
+          setmessage("Name should be longer than 3 chars")
+          return;
       }
       setIsLoading(true)
       const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/register`,{
