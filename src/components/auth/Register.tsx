@@ -27,13 +27,13 @@ const Register = () => {
 
   const submitForm =async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true)
-
+    
     try {
       if (name == "" || email == "" || password == "") {
         setmessage("Please enter all fields!");
         return;
       }
+      setIsLoading(true)
       const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/register`,{
         name: name,
           email: email,

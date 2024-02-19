@@ -44,15 +44,15 @@ const Register: React.FC = () => {
 
 
   const login = async (event: React.FormEvent<HTMLFormElement>) => {
-    setIsLoading(true)
     event.preventDefault();
     try {
-
+      
       if (email == "" || password == '') {
         setmessage("Please enter all fields!")
         return
       }
-
+      
+      setIsLoading(true)
 
 
       // const url= `${import.meta.env.VITE_REACT_APP_API_URL}/login`;
