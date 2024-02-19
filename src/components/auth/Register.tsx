@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import useCreateDate from "../useCreateDate";
 
 import { useNavigate } from "react-router-dom";
-
+import MessageComponent from "./MessageInfo";
+import LoadingComponent from "./_LoadingComponent";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setmessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
 
 
@@ -25,23 +27,31 @@ const Register = () => {
 
   const submitForm =async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true)
 
-    if (name == "" || email == "" || password == "") {
-      setmessage("Please enter all fields!");
-      return;
+    try {
+      if (name == "" || email == "" || password == "") {
+        setmessage("Please enter all fields!");
+        return;
+      }
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/register`,{
+        name: name,
+          email: email,
+          password: password,
+          registrationDate: useCreateDate(),
+      },
+  )
+    console.log(response)
+      if(response.data)
+      {   setIsLoading(false)
+        setmessage(response.data.message)
+      }
+      
+    } catch (error: any) {
+      setIsLoading(false)
+      setmessage(error.response.data.message)
     }
-    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/v1/auth/register`,{
-      name: name,
-        email: email,
-        password: password,
-        registrationDate: useCreateDate(),
-    },
-)
-  console.log(response)
-    if(response.data)
-    {
-      setmessage(response.data.message)
-    }
+
 
       
   };
@@ -79,42 +89,23 @@ const Register = () => {
 
           <p className="mt-7 text-center text-xl">Or</p>
           <br />
-          {/* {message && <div className="flex items-center justify-center p-4 w-[72%] md:w-[25%] mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
-  <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-  </svg>
-
-  <div>
-    <span className="font-medium">{message}</span> 
-  </div>
-</div>} */}
+         
         </div>
         <form className="form" onSubmit={submitForm}>
           <div className="flex flex-col justify-center items-center ">
 
 
-          {message && (
-  <div className="flex items-center justify-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 input_width">
-    <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-    </svg>
-    <div>
-      <span className="font-medium">{message}</span>
-    </div>
-  </div>
-)}
-            {/* <label htmlFor="name" className="self-start block mb-2 left-margin md:self-auto md:mr-[17.9rem] md:ml-0">
-              Name
-            </label> */}
+
+
+    <MessageComponent message={message} />
+          
             <input
               onChange={(e) => setName(e.target.value)}
               className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2 "
               placeholder="Name"
               name="name"
             />
-            {/* <label htmlFor="email" className="self-start block mb-2 left-margin md:self-auto md:mr-[18rem] md:ml-0 ">
-              Email
-            </label> */}
+      
             <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -123,12 +114,7 @@ const Register = () => {
               name="email"
             />
 
-            {/* <label
-              htmlFor="password"
-              className="self-start block mb-2 left-margin md:self-auto md:mr-[16.5rem] md:ml-0"
-            >
-              Password
-            </label> */}
+       
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -136,7 +122,7 @@ const Register = () => {
               placeholder="Password"
               name="password"
             />
-
+{isLoading && <LoadingComponent message="Creating You Account" />}
             <button className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
               <p className="">Create your account </p>
             </button>

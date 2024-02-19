@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 
 import { useNavigate } from "react-router-dom";
+import MessageComponent from "./MessageInfo";
+import LoadingComponent from "./_LoadingComponent";
 
 interface User {
   username: string,
@@ -22,6 +24,7 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setmessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
 
 
@@ -41,7 +44,7 @@ const Register: React.FC = () => {
 
 
   const login = async (event: React.FormEvent<HTMLFormElement>) => {
-
+    setIsLoading(true)
     event.preventDefault();
     try {
 
@@ -59,6 +62,7 @@ const Register: React.FC = () => {
 
       // console.log(data.data.message)
       if (response.data) {
+        setIsLoading(false)
         console.log(response.data.message)
         setmessage(response.data.message)
         addUserToLocalStorage(response.data.user, response.data.token)
@@ -70,7 +74,7 @@ const Register: React.FC = () => {
     catch (error: any) {
       // console.log(error.response.data);
       // console.log(error.response.message);
-
+      setIsLoading(false)
       setmessage(error.response.data.message)
       // console.log(error.response.status);
       // console.log(error.response.headers);
@@ -131,31 +135,11 @@ const Register: React.FC = () => {
 
         <form className="form mt-3 md:mt-2" onSubmit={login}>
           <div className="flex flex-col justify-center items-center ">
-            {/* {message && <div className="flex items-center justify-center p-4 md:w-[18%]  mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50" role="alert">
-              <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-              </svg>
+           
+           <MessageComponent message={message} />
 
-              <div>
-                <span className="font-medium">{message}</span>
-              </div>
-            </div>} */}
 
-{message && (
-  <div className="flex items-center justify-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 input_width">
-    <svg className="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-    </svg>
-    <div>
-      <span className="font-medium">{message}</span>
-    </div>
-  </div>
-)}
-
-            {/* <label htmlFor="email" 
-              className="self-start block mb-2 left-margin  md:self-auto md:mr-[17.8rem] md:ml-0">
-                Email
-              </label> */}
+          
             <input
               type="email"
               placeholder="Email"
@@ -165,12 +149,6 @@ const Register: React.FC = () => {
               className="px-4 py-2 placeholder:text-slate-800 border border-slate-400 rounded-md p-2  mb-3 input_width md:px-4 md:py-2"
             />
 
-            {/* <label
-                htmlFor="password"
-                className="self-start block mb-2 left-margin md:self-auto md:mr-[15.8rem] md:ml-0"
-              >
-                Password
-              </label> */}
             <input
               type="password"
               name="password"
@@ -180,9 +158,10 @@ const Register: React.FC = () => {
             />
 
 
-
+            
+              {isLoading && <LoadingComponent message="Autheticating" />}
             <button type="submit" className="btn_width  mt-3 border bg-black text-white border-slate-400 rounded-md p-2    ">
-              <p >Login in </p>
+              <p >Login </p>
             </button>
             <br />
           </div>

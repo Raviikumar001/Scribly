@@ -31,7 +31,8 @@ interface Note {
   const [note, setNote] = useState<Note[]>([]);
   const [activeNote, setActiveNote] = useState("");
   const [sidebar, setSideBar] = useState(true);
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
+  
   
   const url = `${import.meta.env.VITE_REACT_APP_API_URL}`
   
