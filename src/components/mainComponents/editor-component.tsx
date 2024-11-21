@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BackArrow, Info, Action, Toggle } from "../SvgFiles";
-import NotesInfo from "./NotesInfo";
-import ActionComponent from "./ActionComponent";
+import { BackArrow, Info, Action, Toggle } from "../svg-files";
+import NotesInfo from "./notes-Info";
+import ActionComponent from "./action-component";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import useCreateDate from "../useCreateDate";
+import useCreateDate from "../use-create-date";
 import ReactMarkdown from "react-markdown";
 
 interface Note {

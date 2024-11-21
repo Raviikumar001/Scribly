@@ -1,12 +1,12 @@
 import { Login, Register } from "./components/pages";
-import Home from "./components/Home";
+import Home from "./components/home";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./components/profile";
 // import axios from "axios";
 // import { useEffect } from "react";
 
 // function getUser() {
- 
+
 //   axios
 //     .get("https://scriblle.onrender.com/")
 //     .then((data) => console.log(data))

@@ -1,9 +1,8 @@
-import Register from "./auth/Register";
-import Features from "./Features";
-import Header from "./Header";
-import LandingPage from "./LandingPage";
-import Footer from "./Footer";
-import Login from "./auth/Login";
+import Register from "./auth/register";
+import Features from "./features";
+import Header from "./header";
+import LandingPage from "./landing-page";
+import Footer from "./footer";
+import Login from "./auth/login";
 
-export
-{Register,Features,Header,LandingPage,Footer,Login}
+export { Register, Features, Header, LandingPage, Footer, Login };
