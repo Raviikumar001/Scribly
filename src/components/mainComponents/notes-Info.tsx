@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CrossArrow3 } from "../svg-files";
-import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 interface Note {
   _id: string;
@@ -17,31 +17,33 @@ interface infoProps {
 }
 
 const NotesInfo: React.FC<infoProps> = ({ notes, updateNotes, activenote }) => {
-  const [user, setuser] = useState<Note>();
   const changeValue = () => {
     updateNotes(notes);
   };
-  // console.log(activenote)
 
   function countWords(str: string) {
     return str.trim().split(/\s+/).length;
   }
 
-  const getDataOfNotes = async () => {
+  const fetchNote = async () => {
     const url = `${import.meta.env.VITE_REACT_APP_API_URL}`;
-    axios.get(`${url}/v1/api/get-note?id=${activenote?._id}`).then((res) => {
-      // console.log(res);
-      setuser(res.data.note);
-    });
+    const response = await fetch(`${url}/v1/api/get-note?id=${activenote?._id}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch note data");
+    }
+    return response.json();
   };
 
-  useEffect(() => {
-    getDataOfNotes();
-  }, []);
+  const { data } = useQuery({
+    queryKey: ["note", activenote?._id],
+    queryFn: fetchNote,
+    enabled: !!activenote?._id,
+  });
+  const note = data?.note;
 
   return (
     <div className="relative ">
-      {user ? (
+      {note ? (
         <div className="fixed top-0 left-0  h-screen bg-slate-300 bg-opacity-30 flex justify-center items-center w-[100%]">
           <div className="bg-white text-md absolute top-28 border border-slate-300 left-[10%] w-[80%] rounded-md backdrop-blur md:w-[30%] md:top-44 md:left-[40%]">
             <div className="p-3 flex justify-between border-b-2 border-gray-150  w-[100%]">
@@ -53,22 +55,22 @@ const NotesInfo: React.FC<infoProps> = ({ notes, updateNotes, activenote }) => {
             <div className="text-slate-700 leading-relaxed text-md mb-9 mt-6">
               <div className="pl-3 flex justify-between w-[95%]">
                 <p>Modified</p>
-                <p>{user?.lastModified}</p>
+                <p>{note?.lastModified}</p>
               </div>
 
               <div className="pl-3 flex justify-between w-[95%]">
                 <p>Words</p>
-                <p>{countWords(user?.body)}</p>
+                <p>{countWords(note?.body)}</p>
               </div>
 
               <div className="pl-3 flex justify-between w-[95%]">
                 <p>Characters</p>
-                <p>{user?.body.length}</p>
+                <p>{note?.body.length}</p>
               </div>
 
               <div className="pl-3 flex justify-between w-[95%] ">
                 <p>Created</p>
-                <p>{user?.dateCreated}</p>
+                <p>{note?.dateCreated}</p>
               </div>
             </div>
           </div>

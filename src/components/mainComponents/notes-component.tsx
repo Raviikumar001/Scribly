@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { SerchIcon, CrossArrow2 } from "../svg-files";
 import { v4 as uuid } from "uuid";
 import NewNote from "./notes";
@@ -18,71 +18,44 @@ interface Props {
 }
 
 const NotesComponent: React.FC<Props> = ({ noteItems, activeNote, setActiveNote }) => {
-  // const [allPosts, setAllPosts] = useState<Notes[]>(noteItems);
   const [inputText, setInputText] = useState("");
-  const [searchTimeout, setSearchTimeout] = useState<number | undefined>();
-  const [searchedResults, setSearchedResults] = useState<Notes[] | null>();
-
-  const Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(event.target.value);
-  };
-
-  const onMouseClick = () => {
-    setInputText("");
-    setSearchedResults(null);
-  };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    clearTimeout(searchTimeout);
     setInputText(e.target.value);
-    // console.log(e.target.value)
-
-    // debounce method
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = filterPrompts(e.target.value);
-        setSearchedResults(searchResult);
-      }, 500)
-    );
   };
-  const filterPrompts = (searchtext: string) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+
+  const clearSearch = () => {
+    setInputText("");
+  };
+
+  // Memoize filtered results to avoid unnecessary calculations
+  const filteredNotes = useMemo(() => {
+    if (!inputText) return noteItems;
+    const regex = new RegExp(inputText, "i"); // Case-insensitive search
     return noteItems.filter((item) => regex.test(item.title) || regex.test(item.body));
-  };
+  }, [inputText, noteItems]);
 
-  // console.log(searchedResults, "all posts")
   return (
     <div>
       <div className="flex justify-center">
         <button className="pl-3 pr-2">
           <SerchIcon />
         </button>
-
-        <input value={inputText} onChange={Change} type="text" placeholder="Search all notes" className="w-full h-9 border border-transparent focus:outline-none" onChangeCapture={handleSearchChange} />
+        <input value={inputText} onChange={handleSearchChange} type="text" placeholder="Search all notes" className="w-full h-9 border border-transparent focus:outline-none" />
         {inputText && (
-          <button onClick={onMouseClick}>
+          <button onClick={clearSearch}>
             <CrossArrow2 />
           </button>
         )}
       </div>
 
-      {searchedResults ? (
-        <div className="overflow-y-auto h-[35rem]">
-          {searchedResults.map((item) => (
-            <div key={uuid()}>
-              <NewNote notes={item} activeNote={activeNote} setActiveNote={setActiveNote} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="overflow-y-auto h-[35rem]">
-          {noteItems.map((item) => (
-            <div key={uuid()}>
-              <NewNote notes={item} activeNote={activeNote} setActiveNote={setActiveNote} />
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="overflow-y-auto h-[35rem]">
+        {filteredNotes.map((item) => (
+          <div key={item._id}>
+            <NewNote notes={item} activeNote={activeNote} setActiveNote={setActiveNote} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -18,12 +18,10 @@ const Header = () => {
             <section className={isNavOpen ? "absolute py-4 h-[9rem] w-[7rem] left-[-5rem]  bg-white drop-shadow-xl " : "hidden"}>
               <ul className="text-base  mt-4 block postedIn text-left px-3 rounded-md">
                 <li className="py-2">
-                  {/* <a href="www.google.com">Login</a> */}
                   <Link to="/login">Login</Link>
                 </li>
                 <li>
                   {" "}
-                  {/* <a href="www.google.com">Sign Up</a> */}
                   <Link to="/register">Register</Link>
                 </li>
               </ul>
